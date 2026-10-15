@@ -12,6 +12,7 @@ Parks プロジェクト（Ministry of Business、41）。**SES を GP として
 - 収益：案件に記載の金額（SES が SH から受け取る金額）に対し、成約時に初期費用 7%、その後は月額 3%（案件の契約が続く間。契約は3か月で、延長は SH の判断）。払うのは SES。
 - **最優先は、エンジニアの成約率を上げること**（2026-10-14 tezzo）。中核（成約まで）とオプション（成約のあと、育てる方向）に分け、阿部さんに何を渡すかは tezzo が決める。詳しくは `80_企画書/2026-10-14-03-成約率を最優先にする.md`。企画書（PowerPoint）の制作は保留中。
 - **PARK アプリ（試作）は `81_PARKアプリ`**（2026-10-15）。Node.js だけで動く（`node --no-warnings server.js`、http://localhost:4100/）。データ（`data/`）と SMTP の設定（`config.local.json`）は個人情報・秘密なので Git に上げない。使い方は `81_PARKアプリ/README.md`、動作確認は `node --no-warnings test/smoke.js`。
+- 何をやったかの記録（作業履歴）は `90_History/History.md`（新しいものを上に足す。作業の区切りで追記する）。
 - 全体の概要は `00_Policy/概要.md`。詳しい整理は `30_検討/CURRENT.md`、決めること・次にやることは `92_FromJoe/CURRENT.md`。用語は `06_Glossary/用語集.md`。
 
 ## Claudeへの指示
