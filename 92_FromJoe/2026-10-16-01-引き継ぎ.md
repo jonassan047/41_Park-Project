@@ -28,6 +28,7 @@ Ministry of Business（40 帯）。2026-10-14 に `40_Business-Planning` の会�
 - tezzo は CLI（黒い画面）が苦手。WIZ の入力欄で続ける。
 - 2026-10-15（FOCUS）：tezzo の指示で、PARK アプリのログインを**2要素認証**（認証アプリの6桁のコード）にし、**マニュアル**を3種類（運営・SES・エンジニア）作った。マニュアルはアプリの「使い方」（http://localhost/park/manual）から読める。正本は park の `resources/manuals/`。
 - 2026-10-16（FOCUS）：tezzo の指示で、PARK アプリを **https://www.jona.jp/park/** に公開した（Xserver。DB は `jonassan_park`、見本データなし）。運営のアカウント（tezzo047@gmail.com）の招待のリンクを tezzo に渡した（7日間有効）。メールはまだ「保存のみ」。更新の手順は park の `README.md`。
+- 2026-10-16（FOCUS）：tezzo の指示で、中身を見て確かめられるよう、公開版にも**架空の見本データ**を入れた。見本のアカウント（〜@park.example）のパスワードは、公開の `park1234` ではなく、推測できないものに変えて tezzo にだけ会話で伝えた（ファイルには書かない）。**本番で使い始める前に、見本データを消す**（`migrate:fresh` のあと `park:invite-admin` で運営を作り直す）。
 
 ## 返事待ち（tezzo が決めること）
 
