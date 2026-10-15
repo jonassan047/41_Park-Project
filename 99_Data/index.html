@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PARK - Webエンジニアとクライアントのオープンパーク</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Vue 3 -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- Google Fonts (温かみのある丸ゴシック: M PLUS Rounded 1c) -->
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        park: {
+                            50: '#f2f8f5',
+                            100: '#e1f0e8',
+                            200: '#c2e2d1',
+                            300: '#94ccae',
+                            400: '#5fb084',
+                            500: '#3d9465',
+                            600: '#2e7750',
+                            700: '#266042',
+                            800: '#214e37',
+                            900: '#1b402e',
+                        },
+                        accent: {
+                            orange: '#e67e22',
+                            yellow: '#f1c40f',
+                        }
+                    },
+                    fontFamily: {
+                        rounded: ['"M PLUS Rounded 1c"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            background-color: #f2f8f5;
+            color: #214e37;
+        }
+    </style>
+</head>
+<body class="bg-park-50 text-park-900 antialiased">
+    <div id="app">
+        <!-- ヘッダー -->
+        <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-park-200 shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+                <!-- ロゴ -->
+                <div class="flex items-center space-x-3 cursor-pointer" @click="currentTab = 'home'">
+                    <div class="w-12 h-12 bg-park-500 rounded-2xl flex items-center justify-center text-white shadow-md transform rotate-3 hover:rotate-0 transition duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-extrabold tracking-wider text-park-700">PARK</span>
+                        <span class="block text-xs text-park-500 font-bold">Web Creators & Clients Park</span>
+                    </div>
+                </div>
+
+                <!-- ナビゲーションメニュー -->
+                <nav class="hidden md:flex items-center space-x-1">
+                    <button @click="currentTab = 'home'" :class="currentTab === 'home' ? 'bg-park-100 text-park-700 font-bold' : 'text-park-600 hover:bg-park-50'" class="px-4 py-2 rounded-xl transition">
+                        🌳 ホーム
+                    </button>
+                    <button @click="currentTab = 'lawn'" :class="currentTab === 'lawn' ? 'bg-park-100 text-park-700 font-bold' : 'text-park-600 hover:bg-park-50'" class="px-4 py-2 rounded-xl transition">
+                        🌿 芝生広場 (掲示板)
+                    </button>
+                    <button @click="currentTab = 'bench'" :class="currentTab === 'bench' ? 'bg-park-100 text-park-700 font-bold' : 'text-park-600 hover:bg-park-50'" class="px-4 py-2 rounded-xl transition">
+                        🪑 ベンチ (お仕事相談)
+                    </button>
+                    <button @click="currentTab = 'members'" :class="currentTab === 'members' ? 'bg-park-100 text-park-700 font-bold' : 'text-park-600 hover:bg-park-50'" class="px-4 py-2 rounded-xl transition">
+                        👥 仲間たち
+                    </button>
+                </nav>
+
+                <!-- 右側アクション -->
+                <div class="flex items-center space-x-3">
+                    <button @click="openPostModal" class="bg-park-500 hover:bg-park-600 text-white font-bold px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5 flex items-center space-x-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                        </svg>
+                        <span>投稿・相談する</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- メインコンテンツ -->
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+            <!-- ================= HOME TAB ================= -->
+            <div v-if="currentTab === 'home'" class="space-y-16">
+                
+                <!-- ヒーローセクション -->
+                <section class="relative bg-gradient-to-br from-park-100 via-park-50 to-white rounded-3xl p-8 md:p-14 border border-park-200 overflow-hidden shadow-sm">
+                    <div class="absolute -right-10 -bottom-10 w-96 h-96 bg-park-200/50 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                        <div class="lg:col-span-7 space-y-6">
+                            <div class="inline-flex items-center space-x-2 bg-white/80 backdrop-blur px-3.5 py-1.5 rounded-full border border-park-200 text-park-700 text-sm font-bold shadow-xs">
+                                <span class="w-2.5 h-2.5 rounded-full bg-park-500 animate-pulse"></span>
+                                <span>木漏れ日の下で、Webを語り合おう</span>
+                            </div>
+                            <h1 class="text-3xl sm:text-5xl font-extrabold text-park-900 leading-tight">
+                                つくる人も、頼む人も、<br>同じ木の下で。
+                            </h1>
+                            <p class="text-park-700 text-lg leading-relaxed">
+                                PARKは、初心者からベテランエンジニア、そしてWeb制作を依頼したいクライアントが垣根なくフラットに集まれる、温もりあふれるオープンコミュニティ＆マッチングプラットフォームです。
+                            </p>
+                            <div class="flex flex-wrap gap-4 pt-2">
+                                <button @click="currentTab = 'lawn'" class="bg-park-600 hover:bg-park-700 text-white font-bold px-8 py-4 rounded-2xl shadow-md transition flex items-center space-x-2">
+                                    <span>芝生広場をのぞく</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                                </button>
+                                <button @click="currentTab = 'bench'" class="bg-white hover:bg-park-50 text-park-700 border-2 border-park-300 font-bold px-8 py-4 rounded-2xl shadow-xs transition">
+                                    🪑 ベンチで相談を見る
+                                </button>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-5">
+                            <div class="relative rounded-2xl overflow-hidden shadow-xl border-4 border-white transform rotate-1 hover:rotate-0 transition duration-500">
+                                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80" alt="緑豊かな公園の木漏れ日" class="w-full h-80 object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-park-900/60 via-transparent to-transparent flex items-end p-6">
+                                    <p class="text-white font-bold text-sm bg-park-900/40 backdrop-blur-md px-3.5 py-1.5 rounded-lg border border-white/20">
+                                        ☀️ 本日の来園者：142名がオンライン中
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- パークなう！（リアルタイムアクティビティ） -->
+                <section class="space-y-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h2 class="text-2xl font-extrabold text-park-900 flex items-center space-x-2">
+                                <span>🍃 パークなう！</span>
+                            </h2>
+                            <p class="text-sm text-park-600 mt-1">いま公園内で話されている最新のトピックやご相談</p>
+                        </div>
+                        <button @click="currentTab = 'lawn'" class="text-sm font-bold text-park-600 hover:text-park-800 flex items-center space-x-1">
+                            <span>すべて見る</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div v-for="item in recentActivities" :key="item.id" class="bg-white rounded-2xl p-6 border border-park-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <span :class="item.tagColor" class="text-xs font-bold px-2.5 py-1 rounded-full">{{ item.category }}</span>
+                                    <span class="text-xs text-gray-400">{{ item.time }}</span>
+                                </div>
+                                <h3 class="font-bold text-park-900 text-lg mb-2 hover:text-park-600 cursor-pointer">{{ item.title }}</h3>
+                                <p class="text-sm text-gray-600 line-clamp-2">{{ item.content }}</p>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-park-100 flex items-center justify-between text-xs text-park-700">
+                                <span class="font-bold">👤 {{ item.author }}</span>
+                                <span class="bg-park-50 px-2 py-1 rounded-lg text-park-600">💬 {{ item.comments }} リアクション</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 公園のエリア紹介 -->
+                <section class="space-y-6">
+                    <div class="text-center max-w-2xl mx-auto space-y-2">
+                        <h2 class="text-2xl font-extrabold text-park-900">PARKの歩き方</h2>
+                        <p class="text-sm text-park-600">あなたの目的に合わせて、公園内のそれぞれのスポットを訪れてみてください。</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- 芝生広場バナー -->
+                        <div @click="currentTab = 'lawn'" class="group relative rounded-3xl overflow-hidden shadow-md cursor-pointer h-72">
+                            <img src="https://images.unsplash.com/photo-1519336378972-7e2f1f2f5342?auto=format&fit=crop&w=800&q=80" alt="芝生広場" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-park-900/80 via-park-900/30 to-transparent flex flex-col justify-end p-8 text-white">
+                                <span class="bg-park-500 text-xs font-bold px-3 py-1 rounded-full w-max mb-2">コミュニティエリア</span>
+                                <h3 class="text-2xl font-extrabold mb-1">🌿 芝生広場（掲示板・雑談）</h3>
+                                <p class="text-sm text-park-100 opacity-90">ちょっとした技術の疑問から、エンジニア同士のフリートークまで自由に語り合う場所。</p>
+                            </div>
+                        </div>
+
+                        <!-- ベンチバナー -->
+                        <div @click="currentTab = 'bench'" class="group relative rounded-3xl overflow-hidden shadow-md cursor-pointer h-72">
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="ベンチ" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-park-900/80 via-park-900/30 to-transparent flex flex-col justify-end p-8 text-white">
+                                <span class="bg-accent-orange text-xs font-bold px-3 py-1 rounded-full w-max mb-2">マッチングエリア</span>
+                                <h3 class="text-2xl font-extrabold mb-1">🪑 ベンチ（お仕事・相談マッチング）</h3>
+                                <p class="text-sm text-park-100 opacity-90">「こんなサイトを作りたい」「手伝ってほしい」をベンチで気楽に相談・マッチング。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ピクニックギャラリー（画像による広がり） -->
+                <section class="bg-white rounded-3xl p-8 border border-park-200 shadow-sm space-y-6">
+                    <div class="text-center max-w-xl mx-auto">
+                        <h2 class="text-2xl font-extrabold text-park-900">📷 PARKのひとコマ</h2>
+                        <p class="text-sm text-gray-500 mt-1">リラックスした空気感の中で生まれる、新しいアイデアとつながり。</p>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="rounded-2xl overflow-hidden shadow-sm h-44">
+                            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=500&q=80" alt="ミーティング風景" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden shadow-sm h-44">
+                            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=500&q=80" alt="カフェ風ワーク" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden shadow-sm h-44">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=500&q=80" alt="チーム開発" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden shadow-sm h-44">
+                            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=500&q=80" alt="ノートPCと緑" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- ================= LAWN TAB (芝生広場・掲示板) ================= -->
+            <div v-if="currentTab === 'lawn'" class="space-y-8">
+                <div class="bg-park-100 rounded-3xl p-8 border border-park-200 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div class="space-y-2">
+                        <span class="bg-park-600 text-white text-xs font-bold px-3 py-1 rounded-full">掲示板</span>
+                        <h2 class="text-3xl font-extrabold text-park-900">🌿 芝生広場</h2>
+                        <p class="text-park-700 text-sm">初心者からベテランまで、技術の疑問や日々の開発の悩みを自由に話し合うエリアです。</p>
+                    </div>
+                    <button @click="openPostModal" class="bg-park-600 hover:bg-park-700 text-white font-bold px-6 py-3 rounded-2xl shadow-md transition flex items-center space-x-2 shrink-0">
+                        <span>＋ トピックを投稿する</span>
+                    </button>
+                </div>
+
+                <!-- フィルタータブ -->
+                <div class="flex flex-wrap gap-2">
+                    <button @click="lawnFilter = 'all'" :class="lawnFilter === 'all' ? 'bg-park-600 text-white' : 'bg-white text-park-700 border border-park-200'" class="px-4 py-2 rounded-xl font-bold text-sm transition">すべて</button>
+                    <button @click="lawnFilter = 'tech'" :class="lawnFilter === 'tech' ? 'bg-park-600 text-white' : 'bg-white text-park-700 border border-park-200'" class="px-4 py-2 rounded-xl font-bold text-sm transition">💻 技術・PHP</button>
+                    <button @click="lawnFilter = 'beginner'" :class="lawnFilter === 'beginner' ? 'bg-park-600 text-white' : 'bg-white text-park-700 border border-park-200'" class="px-4 py-2 rounded-xl font-bold text-sm transition">🌱 初心者向け質問</button>
+                    <button @click="lawnFilter = 'chat'" :class="lawnFilter === 'chat' ? 'bg-park-600 text-white' : 'bg-white text-park-700 border border-park-200'" class="px-4 py-2 rounded-xl font-bold text-sm transition">☕ 雑談・カフェ</button>
+                </div>
+
+                <!-- 投稿一覧 -->
+                <div class="space-y-4">
+                    <div v-for="post in filteredLawnPosts" :key="post.id" class="bg-white rounded-2xl p-6 border border-park-200 shadow-xs hover:shadow-md transition">
+                        <div class="flex items-start justify-between">
+                            <div class="space-y-2">
+                                <div class="flex items-center space-x-3">
+                                    <span :class="post.tagColor" class="text-xs font-bold px-2.5 py-1 rounded-full">{{ post.category }}</span>
+                                    <span class="text-xs text-gray-400">投稿者: {{ post.author }} （{{ post.role }}）</span>
+                                    <span class="text-xs text-gray-400">{{ post.time }}</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-park-900 hover:text-park-600 cursor-pointer">{{ post.title }}</h3>
+                                <p class="text-sm text-gray-600">{{ post.content }}</p>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-park-100 flex items-center justify-between">
+                            <div class="flex space-x-2">
+                                <button @click="likePost(post)" class="bg-park-50 hover:bg-park-100 text-park-700 px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center space-x-1">
+                                    <span>👏 それわかる！</span>
+                                    <span class="bg-white px-1.5 py-0.5 rounded-md shadow-xs">{{ post.likes }}</span>
+                                </button>
+                            </div>
+                            <span class="text-xs text-park-600 font-bold">💬 コメント {{ post.commentsCount }}件</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= BENCH TAB (ベンチ・お仕事相談) ================= -->
+            <div v-if="currentTab === 'bench'" class="space-y-8">
+                <div class="bg-amber-50 rounded-3xl p-8 border border-amber-200 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div class="space-y-2">
+                        <span class="bg-accent-orange text-white text-xs font-bold px-3 py-1 rounded-full">マッチング</span>
+                        <h2 class="text-3xl font-extrabold text-park-900">🪑 ベンチ（お仕事・相談マッチング）</h2>
+                        <p class="text-park-700 text-sm">公園のベンチで話すように、「こんなサイトを作りたい」「ちょっと手伝ってほしい」を気軽に相談できます。</p>
+                    </div>
+                    <button @click="openPostModal" class="bg-accent-orange hover:bg-amber-600 text-white font-bold px-6 py-3 rounded-2xl shadow-md transition flex items-center space-x-2 shrink-0">
+                        <span>＋ 相談・案件を投稿する</span>
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div v-for="job in benchJobs" :key="job.id" class="bg-white rounded-2xl p-6 border border-park-200 shadow-xs hover:shadow-md transition flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="bg-amber-100 text-accent-orange font-bold text-xs px-2.5 py-1 rounded-full">{{ job.status }}</span>
+                                <span class="text-xs text-gray-400">予算目安: {{ job.budget }}</span>
+                            </div>
+                            <h3 class="font-bold text-park-900 text-lg mb-2">{{ job.title }}</h3>
+                            <p class="text-sm text-gray-600 mb-4">{{ job.content }}</p>
+                            <div class="flex flex-wrap gap-1.5 mb-4">
+                                <span v-for="tag in job.tags" :key="tag" class="bg-park-50 text-park-700 text-xs px-2.5 py-1 rounded-lg font-bold">{{ tag }}</span>
+                            </div>
+                        </div>
+                        <div class="pt-4 border-t border-park-100 flex items-center justify-between">
+                            <span class="text-xs text-gray-500">依頼主: {{ job.client }}</span>
+                            <button @click="applyConsult" class="bg-park-600 hover:bg-park-700 text-white text-xs font-bold px-4 py-2 rounded-xl transition">
+                                話を聞いてみる
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= MEMBERS TAB (仲間たち) ================= -->
+            <div v-if="currentTab === 'members'" class="space-y-8">
+                <div class="bg-park-100 rounded-3xl p-8 border border-park-200 text-center space-y-3">
+                    <h2 class="text-3xl font-extrabold text-park-900">👥 PARKに集まる仲間たち</h2>
+                    <p class="text-park-700 text-sm max-w-xl mx-auto">初心者からベテランエンジニア、Web制作を依頼したいクライアントが参加しています。</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <div v-for="member in members" :key="member.id" class="bg-white rounded-2xl p-6 border border-park-200 shadow-xs text-center space-y-4">
+                        <div class="relative w-20 h-20 mx-auto rounded-full overflow-hidden border-2 border-park-300">
+                            <img :src="member.avatar" :alt="member.name" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h3 class="font-extrabold text-park-900 text-lg">{{ member.name }}</h3>
+                            <span class="inline-block bg-park-50 text-park-700 text-xs font-bold px-3 py-1 rounded-full mt-1">{{ member.role }}</span>
+                        </div>
+                        <p class="text-xs text-gray-600 leading-relaxed">{{ member.bio }}</p>
+                        <div class="pt-2">
+                            <span class="text-xs font-bold text-park-600 bg-park-100 px-3 py-1.5 rounded-xl block">
+                                🟢 {{ member.status }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- 投稿モーダル -->
+        <div v-if="showModal" class="fixed inset-0 z-50 bg-park-900/40 backdrop-blur-xs flex items-center justify-center p-4">
+            <div class="bg-white rounded-3xl max-w-lg w-full p-8 border border-park-200 shadow-2xl space-y-6">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-xl font-extrabold text-park-900">🌿 PARKに投稿・相談する</h3>
+                    <button @click="showModal = false" class="text-gray-400 hover:text-gray-600 text-xl font-bold">×</button>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-park-700 mb-1">投稿先カテゴリ</label>
+                        <select v-model="newPost.category" class="w-full border border-park-200 rounded-xl p-3 text-sm focus:outline-none focus:border-park-500 bg-park-50">
+                            <option value="🌿 芝生広場（技術・質問）">🌿 芝生広場（技術・質問）</option>
+                            <option value="☕ 芝生広場（雑談・カフェ）">☕ 芝生広場（雑談・カフェ）</option>
+                            <option value="🪑 ベンチ（お仕事相談）">🪑 ベンチ（お仕事相談）</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-park-700 mb-1">タイトル</label>
+                        <input v-model="newPost.title" type="text" placeholder="例: PHPのルーティングについて教えてください" class="w-full border border-park-200 rounded-xl p-3 text-sm focus:outline-none focus:border-park-500 bg-park-50">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-park-700 mb-1">内容</label>
+                        <textarea v-model="newPost.content" rows="4" placeholder="気軽に今の悩みやアイデアを書いてみましょう..." class="w-full border border-park-200 rounded-xl p-3 text-sm focus:outline-none focus:border-park-500 bg-park-50"></textarea>
+                    </div>
+                </div>
+                <div class="flex justify-end space-x-3">
+                    <button @click="showModal = false" class="px-5 py-2.5 rounded-xl text-gray-500 font-bold text-sm hover:bg-gray-100">キャンセル</button>
+                    <button @click="submitPost" class="bg-park-600 hover:bg-park-700 text-white font-bold px-6 py-2.5 rounded-xl text-sm shadow-md transition">投稿する</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- フッター -->
+        <footer class="mt-20 border-t border-park-200 bg-white py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+                <div class="flex items-center justify-center space-x-2">
+                    <div class="w-8 h-8 bg-park-500 rounded-xl flex items-center justify-center text-white font-bold">P</div>
+                    <span class="text-xl font-extrabold text-park-700">PARK</span>
+                </div>
+                <p class="text-xs text-park-600">つくる人も、頼む人も、同じ木の下で。Webのオープンパーク。</p>
+                <p class="text-xs text-gray-400">&copy; 2026 PARK Platform. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Vue App Logic -->
+    <script>
+        const { createApp, ref, computed } = Vue;
+
+        createApp({
+            setup() {
+                const currentTab = ref('home');
+                const lawnFilter = ref('all');
+                const showModal = ref(false);
+
+                const newPost = ref({
+                    category: '🌿 芝生広場（技術・質問）',
+                    title: '',
+                    content: ''
+                });
+
+                const recentActivities = ref([
+                    { id: 1, category: '技術・PHP', title: 'Laravelのルーティング設計で迷っています', content: 'サブディレクトリに設置する際のApacheのRewriteBaseについて...', author: 'Kenta', role: 'シニアエンジニア', time: '10分前', likes: 14, comments: 5, tagColor: 'bg-emerald-100 text-emerald-800' },
+                    { id: 2, category: 'お仕事相談', title: '飲食店向け予約システムの簡易LPを作りたい', content: '個人経営のカフェですが、シンプルな予約ページと相談窓口を作ってくれる方...', author: '佐藤さん', role: 'クライアント', time: '1時間前', likes: 8, comments: 3, tagColor: 'bg-amber-100 text-amber-800' },
+                    { id: 3, category: '雑談・カフェ', title: '今日のお供のコーヒーと音楽について', content: '皆さんはコーディング中どんな音楽を聴いていますか？ジャズやBGMのおすすめを教えてください！', author: 'Miki', role: 'Webデザイナー', time: '3時間前', likes: 22, comments: 9, tagColor: 'bg-teal-100 text-teal-800' },
+                ]);
+
+                const lawnPosts = ref([
+                    { id: 1, category: '💻 技術・PHP', tagType: 'tech', title: 'Laravelのルーティング設計で迷っています', content: 'サブディレクトリに設置する際のApacheのRewriteBaseや、.htaccessの設定でハマったポイントを共有します。皆さんはどう対策していますか？', author: 'Kenta', role: 'シニアエンジニア', time: '10分前', likes: 14, commentsCount: 5, tagColor: 'bg-emerald-100 text-emerald-800' },
+                    { id: 2, category: '🌱 初心者向け質問', tagType: 'beginner', title: 'HTML/CSSを学んだ次に覚えるべき言語は何ですか？', content: '独学で基礎を終えたのですが、次にPHPやJavaScriptのどちらを学ぶべきか、実務の現場の意見を聞きたいです。', author: 'Riku', role: '学習中', time: '2時間前', likes: 19, commentsCount: 8, tagColor: 'bg-green-100 text-green-800' },
+                    { id: 3, category: '☕ 雑談・カフェ', tagType: 'chat', title: '今日のお供のコーヒーと音楽について', content: '皆さんはコーディング中どんな音楽を聴いていますか？最近はジャズのブラシ音を聴きながら作業するのがお気に入りです。', author: 'Miki', role: 'Webデザイナー', time: '3時間前', likes: 22, commentsCount: 9, tagColor: 'bg-teal-100 text-teal-800' },
+                ]);
+
+                const benchJobs = ref([
+                    { id: 1, title: '飲食店向け予約システムの簡易LP作成', content: '個人経営のカフェのホームページリニューアルと、簡単なWeb予約・お問い合わせフォームの設置をお願いしたいです。', client: '佐藤さん（飲食店オーナー）', budget: '5万〜10万円', status: '💡 相談受付中', tags: ['HTML/CSS', 'WordPress / PHP', 'UIデザイン'] },
+                    { id: 2, title: '既存PHPWebサービスの保守・機能追加サポート', content: '自社で運営しているPHPサービスの改修や、ちょっとしたバグ修正などを柔軟にお手伝いいただけるパートナーエンジニアを探しています。', client: '鈴木さん（IT企業代表）', budget: '応相談 / 月額顧問', status: '🔥 パートナー募集中', tags: ['PHP', 'Laravel', 'MySQL'] }
+                ]);
+
+                const members = ref([
+                    { id: 1, name: 'Kenta', role: 'シニアエンジニア (PM/PL)', bio: 'PHPやLaravelを用いたWebサービスの開発や上流工程を担当しています。お気軽に技術的なご相談をどうぞ！', status: '木陰でコーディング中', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80' },
+                    { id: 2, name: '佐藤さん', role: 'クライアント・カフェオーナー', bio: 'お店のWeb展開やデジタル化について勉強中。エンジニアの方とフラットにアイデアを話せたら嬉しいです。', status: 'ベンチで相談受付中', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80' },
+                    { id: 3, name: 'Miki', role: 'Webデザイナー', bio: '自然体で温かみのあるデザインが好きです。エンジニアさんと協力して素敵なサイトを作りたいです。', status: '芝生広場でひとやすみ', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80' }
+                ]);
+
+                const filteredLawnPosts = computed(() => {
+                    if (lawnFilter.value === 'all') return lawnPosts.value;
+                    if (lawnFilter.value === 'tech') return lawnPosts.value.filter(p => p.tagType === 'tech');
+                    if (lawnFilter.value === 'beginner') return lawnPosts.value.filter(p => p.tagType === 'beginner');
+                    if (lawnFilter.value === 'chat') return lawnPosts.value.filter(p => p.tagType === 'chat');
+                    return lawnPosts.value;
+                });
+
+                const openPostModal = () => {
+                    showModal.value = true;
+                };
+
+                const submitPost = () => {
+                    if (!newPost.value.title) return;
+                    lawnPosts.value.unshift({
+                        id: Date.now(),
+                        category: newPost.value.category,
+                        tagType: 'chat',
+                        title: newPost.value.title,
+                        content: newPost.value.content,
+                        author: 'あなた',
+                        role: 'ゲスト',
+                        time: 'たった今',
+                        likes: 1,
+                        commentsCount: 0,
+                        tagColor: 'bg-park-100 text-park-800'
+                    });
+                    newPost.value.title = '';
+                    newPost.value.content = '';
+                    showModal.value = false;
+                    currentTab.value = 'lawn';
+                };
+
+                const likePost = (post) => {
+                    post.likes++;
+                };
+
+                const applyConsult = () => {
+                    alert('「話を聞いてみる」ボタンが押されました。ダイレクトメッセージ（あずまや）へ進みます。');
+                };
+
+                return {
+                    currentTab,
+                    lawnFilter,
+                    showModal,
+                    newPost,
+                    recentActivities,
+                    lawnPosts,
+                    benchJobs,
+                    members,
+                    filteredLawnPosts,
+                    openPostModal,
+                    submitPost,
+                    likePost,
+                    applyConsult
+                };
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>
