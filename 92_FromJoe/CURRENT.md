@@ -1,4 +1,4 @@
-# 2026-10-15 ジョーから次の作業へ（Park-Project）
+# 2026-10-16 ジョーから次の作業へ（Park-Project）
 
 > 次に作業を始めるとき、まずこのファイルを読む。全体の引き継ぎは Desktop の `92_FromJoe/CURRENT.md` にある（Desktop は全体の IF）。
 
@@ -27,6 +27,7 @@ Ministry of Business（40 帯）。2026-10-14 に `40_Business-Planning` の会�
 - 2026-10-15（FOCUS）：tezzo の指示で、**PARK アプリを PHP（Laravel 12）＋ MySQL に移した**。htdocs の `park`（http://localhost/park/）、DB は `jonassan_park`、GitHub は jonassan047/park（公開）。Node 版の機能はすべて移し、テスト（7件・131項目）はすべて通った。Node 版の `81_PARKアプリ` は消した。見本のアカウント（パスワード `park1234`）は park の `README.md`。
 - tezzo は CLI（黒い画面）が苦手。WIZ の入力欄で続ける。
 - 2026-10-15（FOCUS）：tezzo の指示で、PARK アプリのログインを**2要素認証**（認証アプリの6桁のコード）にし、**マニュアル**を3種類（運営・SES・エンジニア）作った。マニュアルはアプリの「使い方」（http://localhost/park/manual）から読める。正本は park の `resources/manuals/`。
+- 2026-10-16（FOCUS）：tezzo の指示で、PARK アプリを **https://www.jona.jp/park/** に公開した（Xserver。DB は `jonassan_park`、見本データなし）。運営のアカウント（tezzo047@gmail.com）の招待のリンクを tezzo に渡した（7日間有効）。メールはまだ「保存のみ」。更新の手順は park の `README.md`。
 
 ## 返事待ち（tezzo が決めること）
 
@@ -40,7 +41,8 @@ Ministry of Business（40 帯）。2026-10-14 に `40_Business-Planning` の会�
 ## 次にやること
 
 - tezzo が PARK アプリ（http://localhost/park/）を、運営・SES・エンジニアの3つの立場で触ってみて、直したい点を伝える（見本のアカウントは park の README）。
-- アプリをインターネットに公開する準備（サーバー・HTTPS・バックアップ・送信用のメールアドレス）。
+- tezzo が招待のリンクから、公開版の運営アカウントのパスワードと2要素認証を設定する。
+- 公開版のメールの送信元（例：park@jona.jp）を決めて、メールを実際に送れるようにする。DB のバックアップの方法を決める。
 - tezzo が `-19` を確認する。
 - tezzo が `-08`（SES 目線の6枚）を確認する。費用（7%・3%）を企画書に入れるかも決める。続けて、各画面で入れる項目を決める。
 - tezzo が `-04`（企画書）と `-03`（成約率の整理）を確認し、阿部さんに渡す範囲（オプションを含めるか）を決める。`30_検討` の一覧（A〜K）と `-03` のどちらを正本にするかも決める。
