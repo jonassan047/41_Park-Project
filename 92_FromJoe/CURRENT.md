@@ -39,6 +39,7 @@ Ministry of Business（40 帯）。2026-10-14 に `40_Business-Planning` の会�
   2. 案内メールに「応募したい／質問がある／見送る」のリンク（押すと記録され、送った人に知らせ）。
   3. ホームのいちばん上に「今やること」（運営・SES・エンジニア）。
   4. AI の仕事の箱：面談スクリプトの言い回し、経歴書から経験票の下書き。AI は FOCUS の Ollama（qwen2.5:7b）で動かし、つなぎ役 `tools/ai-worker/park_ai_worker.py` が PARK に仕事を取りに行く。FOCUS に Ollama を入れた。
+- 2026-10-16（FOCUS）：手元のアプリで、本物の AI（FOCUS の Ollama、qwen2.5:7b、CPU だけ）を使って両方の仕事を確かめた。面談スクリプトの言い回しは11項目そろって約2分半、経歴書（テキスト）からの下書きは2件の案件に分けて約45秒。AI が項目を省いたときは「失敗」にして、もう一度頼めるようにした。試しに使ったデータは消した。
 - tezzo は CLI（黒い画面）が苦手。WIZ の入力欄で続ける。
 - 2026-10-15（FOCUS）：tezzo の指示で、PARK アプリのログインを**2要素認証**（認証アプリの6桁のコード）にし、**マニュアル**を3種類（運営・SES・エンジニア）作った。マニュアルはアプリの「使い方」（http://localhost/park/manual）から読める。正本は park の `resources/manuals/`。
 - 2026-10-16（FOCUS）：tezzo の指示で、PARK アプリを **https://www.jona.jp/park/** に公開した（Xserver。DB は `jonassan_park`、見本データなし）。運営のアカウント（tezzo047@gmail.com）の招待のリンクを tezzo に渡した（7日間有効）。メールはまだ「保存のみ」。更新の手順は park の `README.md`。
