@@ -31,7 +31,7 @@ PARKS が動き続けているかを点検し、記録を整えます。アプ�
 3. 手元の状態：park で `php artisan park:status`。
 4. 公開版：`/`・`/login`・`/manual` が 200 で開くか（curl）。公開版の状態は `bash .claude/scripts/park-remote-status.sh` で見る（見るだけ。tezzo が了承済み）。
 5. 手元の AI：Ollama（`http://localhost:11434/api/version`）とつなぎ役（pythonw.exe）が動いているか、`worker.log` の最後に失敗が出ていないか。
-6. 写し：`04_Manual` の写し（運営・SES・エンジニア向けは同名のフォルダの下）が、parks の `resources/manuals/`・`README.md` と同じか（違えば写し直す）。
+6. 写し：`04_Manual` の写し（運営・SES・エンジニア向けは同名のフォルダの下の `マニュアル.md`・`操作手順書.md`）が、parks の `resources/manuals/`・`README.md` と同じか（違えば写し直す）。
 7. 返事待ち：`92_FromJoe/CURRENT.md` の返事待ちと「次にやること」から、tezzo に伝えるべきものを拾う。
 
 ### 朝の点検
