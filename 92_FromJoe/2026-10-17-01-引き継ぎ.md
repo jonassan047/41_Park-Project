@@ -63,7 +63,7 @@ Ministry of Business（40 帯）。2026-10-14 に `40_Business-Planning` の会�
 
 ## 返事待ち（tezzo が決めること）
 
-- **W**（フォルダ本体の改名）：Workspace の 41_Park-Project を 41_Parks-Project に変える。会話の中からは変えられないので、JOE（ビジョン）が外から行う（2026-10-17 tezzo の指示）。あわせて記憶・WIZ の会話の記録・朝の点検のショートカットも移す。
+- なし
 
 ## 検討中（ToDo メモ。返事待ちではない）
 
@@ -78,6 +78,7 @@ Ministry of Business（40 帯）。2026-10-14 に `40_Business-Planning` の会�
 
 ## 片付いた返事待ち
 
+- W（フォルダ本体の改名）：tezzo の指示で、JOE（ビジョン）が外から行った（2026-10-17）。Workspace のフォルダを 41_Parks-Project に変え、Claude Code の記憶（`~/.claude/projects/D--Users-rock-Workspace-41-Parks-Project`）にコピーし（古いほうも残してある）、スタートアップを「PARKS 朝の点検」（新しいフォルダのスクリプト）に作り直した。WIZ の会話の記録 `41_Park-Project.json` は、改名のときにはもう無かった（13:52 ごろに消えていた。「新しい会話」を押したときと同じ消え方）。前からあった古い `41_Parks-Project.json` は `.old-20261014` を付けて残した。
 - V（手元のフォルダとこのプロジェクトの名前）：tezzo が「手元の park の改名と Apache の設定の書き換えをしてよい」「41_Park-Project を 41_Parks-Project に改名して」（2026-10-17）。htdocs の park → parks（Apache は /parks、古い /park は転送）、GitHub の 41_Park-Project → 41_Parks-Project、スタートアップを「PARKS AI つなぎ役」「PARKS 朝の点検」にした。
 - T（公開版のメールの送り元の名前）と V の公開版の部分：tezzo が「公開版の .env の書き換えと /parks への移し替えをしてよい」（2026-10-17）。公開版を https://www.jona.jp/parks/ に移し（サーバーの ~/parks）、古い /park/ は /parks/ へ転送するようにした。.env はサービス名・URL・クッキーの場所・送り元の名前（PARKS 運営事務局）を直した（前の .env はサーバーの ~/park-env-backup-20261017）。手元の AI のつなぎ役も /parks を見るようにして起動し直した。
 - U（企画書・契約書類の名前）：tezzo が「進めて」（2026-10-17）。PARKS にした新しい版を作った。
