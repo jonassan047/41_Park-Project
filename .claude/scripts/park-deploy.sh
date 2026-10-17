@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# parks の最新（GitHub の main）を公開版（www.jona.jp/parks）に反映する。
+# park の最新（GitHub の main）を公開版（www.jona.jp/parks）に反映する。
 # tezzo の常時の了承（2026-10-17「毎回反映して」）の範囲：コードの更新・DB の列やテーブルの追加（migrate）・キャッシュの作り直しだけ。
 # .env の書き換え、データの削除（migrate:fresh など）、メールの一斉送信は、ここではしない（それは毎回 tezzo の了承を取る）。
 set -euo pipefail

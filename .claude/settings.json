@@ -1,8 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(bash .claude/scripts/parks-remote-status.sh)",
-      "Bash(bash .claude/scripts/parks-deploy.sh)"
+      "Bash(bash .claude/scripts/park-remote-status.sh)",
+      "Bash(bash .claude/scripts/park-deploy.sh)"
     ]
   }
 }

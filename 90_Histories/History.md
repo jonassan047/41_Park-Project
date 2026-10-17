@@ -5,7 +5,6 @@ PARKS プロジェクト（41_Parks-Project）で何をやったかの記録（�
 
 ## 2026-10-17
 
-- エージェント5つ（park-→parks-）とスクリプト3つ（park-→parks-）の名前を複数形に改名し、settings.json の許可・スタートアップ「PARKS 朝の点検」の登録先・md の文中の「park」「PARK」も合わせた。動いているアプリ側（artisan の park:*、park_ai_worker.py、~/.park-ai、DB 名 jonassan_park、メールアドレス）は変えていない。
 - 04_Manuals の下に 運営・SES・エンジニア のフォルダを作り、それぞれのマニュアルと操作手順書を移した。ファイル名は「〜向け」を外して マニュアル.md・操作手順書.md にした（README と運用手順は 04_Manuals 直下のまま）。リンクと CLAUDE.md・park-manager の説明も直した。
 - htdocs の park を parks に（Apache は /parks。古い /park は転送）、このプロジェクトを 41_Parks-Project に（GitHub も）改名した。スタートアップのつなぎ役・朝の点検の名前と場所も直した。
 - 公開版を https://www.jona.jp/parks/ に移した（古い /park/ は転送）。.env の名前を PARKS にし、スクリプトと AI のつなぎ役の接続先を直した。

@@ -106,7 +106,7 @@ SES が受けた案件メールから、エンジニアへの案内メールを�
 
 ## 状態の点検（2026-10-16）
 
-`php artisan park:status` で、メール・AI の仕事・選考・確認待ちなどを数で出す（個人情報は出さない）。PARKS 担当のエージェント（41_Parks-Project の `.claude/agents/parks-manager.md`）が点検に使う。公開サーバーでは `/opt/php-8.3/bin/php artisan park:status`。
+`php artisan park:status` で、メール・AI の仕事・選考・確認待ちなどを数で出す（個人情報は出さない）。PARKS 担当のエージェント（41_Parks-Project の `.claude/agents/park-manager.md`）が点検に使う。公開サーバーでは `/opt/php-8.3/bin/php artisan park:status`。
 
 ## AI の仕事の箱（2026-10-16）
 
@@ -125,7 +125,7 @@ set PARK_AI_TOKEN=（.env と同じ合言葉）
 python tools/ai-worker/park_ai_worker.py
 ```
 
-FOCUS では、Windows の起動で自動で動く（2026-10-16〜）。Ollama は自分のショートカットで、つなぎ役は「スタートアップ」の「PARKS AI つなぎ役」（`pythonw.exe -I park_ai_worker.py --log`。窓は出ない）。公開版の URL と合言葉は `~/.park-ai/config.json`（この PC にだけ置く。Git には上げない）。記録は `~/.park-ai/worker.log`。止めるときは、タスクマネージャーで pythonw.exe を終わらせる。
+FOCUS では、Windows の起動で自動で動く（2026-10-16〜）。Ollama は自分のショートカットで、つなぎ役は「スタートアップ」の「PARK AI つなぎ役」（`pythonw.exe -I park_ai_worker.py --log`。窓は出ない）。公開版の URL と合言葉は `~/.park-ai/config.json`（この PC にだけ置く。Git には上げない）。記録は `~/.park-ai/worker.log`。止めるときは、タスクマネージャーで pythonw.exe を終わらせる。
 
 まだやっていないこと：返信を PARKS が受け取って AI に渡すこと（受信用のメールボックスと、手元の AI が要る）。
 
