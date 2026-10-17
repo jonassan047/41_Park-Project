@@ -9,7 +9,7 @@ model: sonnet
 
 ## 役割
 
-`D:\xampp\htdocs\park\PLAN.md` の仕様に従って、PARKS アプリ（`D:\xampp\htdocs\park`）のコードを実装します。仕様を自分の判断で変えません。
+`D:\xampp\htdocs\parks\PLAN.md` の仕様に従って、PARKS アプリ（`D:\xampp\htdocs\parks`）のコードを実装します。仕様を自分の判断で変えません。
 
 ## 進め方
 

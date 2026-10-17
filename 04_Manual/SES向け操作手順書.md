@@ -1,4 +1,4 @@
-> 写し（WIZ で読むためのもの）。正本は park の `resources/manuals/ses-steps.md`（[開く](D:/xampp/htdocs/park/resources/manuals/ses-steps.md)）。直すときは正本を直し、ここに写し直す。
+> 写し（WIZ で読むためのもの）。正本は parks の `resources/manuals/ses-steps.md`（[開く](D:/xampp/htdocs/parks/resources/manuals/ses-steps.md)）。直すときは正本を直し、ここに写し直す。
 
 # PARKS 操作手順書（SES 企業さま向け）
 

@@ -15,8 +15,8 @@ PARKS が動き続けているかを点検し、記録を整えます。アプ�
 
 | 場所 | 中身 |
 |---|---|
-| `D:\Users\rock\Workspace\41_Park-Project` | 構想・企画書・契約書類・検討・記録（GitHub は公開） |
-| `D:\xampp\htdocs\park` | PARKS アプリ（Laravel 12。GitHub は jonassan047/parks で公開） |
+| `D:\Users\rock\Workspace\41_Parks-Project` | 構想・企画書・契約書類・検討・記録（GitHub は公開） |
+| `D:\xampp\htdocs\parks` | PARKS アプリ（Laravel 12。GitHub は jonassan047/parks で公開） |
 | https://www.jona.jp/parks/ | 公開版（Xserver。`ssh -p 10022 jonassan@jonassan.xsrv.jp`、アプリは `~/park`、PHP は `/opt/php-8.3/bin/php`） |
 | FOCUS の手元の AI | Ollama（qwen2.5:7b）と、つなぎ役 `tools/ai-worker/park_ai_worker.py`（スタートアップで自動起動。記録は `~/.park-ai/worker.log`） |
 
@@ -26,12 +26,12 @@ PARKS が動き続けているかを点検し、記録を整えます。アプ�
 
 次を順に確かめ、結果を表にまとめて返す。問題があれば、原因の見当と直し方の案を付ける（直すのは、頼まれてから）。
 
-1. Git：41_Park-Project と park で `git fetch`。未 push・未 commit・GitHub との差がないか。
+1. Git：41_Parks-Project と park で `git fetch`。未 push・未 commit・GitHub との差がないか。
 2. テスト：park で `php artisan test`。全部通るか。
 3. 手元の状態：park で `php artisan park:status`。
 4. 公開版：`/`・`/login`・`/manual` が 200 で開くか（curl）。公開版の状態は `bash .claude/scripts/park-remote-status.sh` で見る（見るだけ。tezzo が了承済み）。
 5. 手元の AI：Ollama（`http://localhost:11434/api/version`）とつなぎ役（pythonw.exe）が動いているか、`worker.log` の最後に失敗が出ていないか。
-6. 写し：`04_Manual` の写しが、park の `resources/manuals/`・`README.md` と同じか（違えば写し直す）。
+6. 写し：`04_Manual` の写しが、parks の `resources/manuals/`・`README.md` と同じか（違えば写し直す）。
 7. 返事待ち：`92_FromJoe/CURRENT.md` の返事待ちと「次にやること」から、tezzo に伝えるべきものを拾う。
 
 ### 朝の点検

@@ -9,7 +9,7 @@ model: sonnet
 
 ## 役割
 
-完成したコードが `D:\xampp\htdocs\park\PLAN.md` の受け入れ条件を満たすかを、テストで検証します。**実装コード本体（`app`・`routes`・`resources`・`database`）は書き換えません**（テストファイルの作成・追記のみ）。不具合は報告し、修正は park-implementer に任せます。
+完成したコードが `D:\xampp\htdocs\parks\PLAN.md` の受け入れ条件を満たすかを、テストで検証します。**実装コード本体（`app`・`routes`・`resources`・`database`）は書き換えません**（テストファイルの作成・追記のみ）。不具合は報告し、修正は park-implementer に任せます。
 
 ## 進め方
 

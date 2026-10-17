@@ -1,4 +1,4 @@
-# 2026-10-17 ジョーから次の作業へ（Park-Project）
+# 2026-10-17 ジョーから次の作業へ（Parks-Project）
 
 > 次に作業を始めるとき、まずこのファイルを読む。全体の引き継ぎは Desktop の `92_FromJoe/CURRENT.md` にある（Desktop は全体の IF）。
 
@@ -49,6 +49,7 @@ Ministry of Business（40 帯）。2026-10-14 に `40_Business-Planning` の会�
 - 2026-10-17（FOCUS）：tezzo の指示で、**名前を PARKS（複数形）にそろえた**（アプリの画面・メールの文・マニュアル・このプロジェクトの md。URL の /park・フォルダ・GitHub・DB の名前と、議事録・企画書・契約書類は変えていない）。あわせて、運営・SES・エンジニアの**操作手順書**（初めてのログイン、アカウント・会社情報などの設定、届くメールの処理）を作った。アプリの「使い方」から読め、写しは [04_Manual](04_Manual)（[運営向け操作手順書](04_Manual/運営向け操作手順書.md)・[SES向け操作手順書](04_Manual/SES向け操作手順書.md)・[エンジニア向け操作手順書](04_Manual/エンジニア向け操作手順書.md)）。テスト16件が通り、公開版にも反映した。
 - 2026-10-17（FOCUS）：tezzo の「1・2・3 すべて進めて」と「GitHub の park を parks に名前変更してよい」で、GitHub のリポジトリを **jonassan047/parks** に変えた（手元の htdocs の park と公開サーバーの接続先も直した。古い URL は GitHub が転送する）。企画書と契約書類も PARKS にした新しい版を作った（[2026-10-17-01-ご提案.pptx](80_企画書/2026-10-17-01-ご提案.pptx)、[81_契約書類](81_契約書類) の 2026-10-17-01〜05。前の版は [31_企画書の検討](31_企画書の検討)・[32_契約書類の検討](32_契約書類の検討) に移した）。公開版の URL を /parks に移す作業と .env の書き換えは、自動の安全チェックで止められたので、まだしていない（返事待ち T・V）。
 - 2026-10-17（FOCUS）：公開版を **https://www.jona.jp/parks/** に移した（古い /park/ は転送。送った招待のリンクもそのまま使える）。.env の名前も PARKS にした。点検・反映のスクリプト、AI のつなぎ役の接続先も直した。
+- 2026-10-17（FOCUS）：**名前を全部 PARKS にそろえ終えた**。アプリは htdocs の `parks`（http://localhost/parks/、GitHub は jonassan047/parks）、公開版は https://www.jona.jp/parks/、このプロジェクトは **41_Parks-Project**（GitHub も）。古い /park/ はどちらも転送する。DB の名前（jonassan_park）とコードの中の名前（park.css・park:status・park-manager など）は、中の名前なので変えていない。
 - tezzo は CLI（黒い画面）が苦手。WIZ の入力欄で続ける。
 - 2026-10-15（FOCUS）：tezzo の指示で、PARK アプリのログインを**2要素認証**（認証アプリの6桁のコード）にし、**マニュアル**を3種類（運営・SES・エンジニア）作った。マニュアルはアプリの「使い方」（http://localhost/park/manual）から読める。正本は park の `resources/manuals/`。
 - 2026-10-16（FOCUS）：tezzo の指示で、PARK アプリを **https://www.jona.jp/park/** に公開した（Xserver。DB は `jonassan_park`、見本データなし）。運営のアカウント（tezzo047@gmail.com）の招待のリンクを tezzo に渡した（7日間有効）。メールはまだ「保存のみ」。更新の手順は park の `README.md`。
@@ -62,7 +63,6 @@ Ministry of Business（40 帯）。2026-10-14 に `40_Business-Planning` の会�
 
 ## 返事待ち（tezzo が決めること）
 
-- V（手元のフォルダを parks に）：公開版は移し終えた。残りは ① htdocs の park → parks と Apache の設定（再起動に管理者の許可）② Workspace の 41_Park-Project → 41_Parks-Project（この会話を閉じてから、別のフォルダで）。①はフォルダの改名が自動の安全チェックに止められたので、tezzo の許可か、tezzo 自身の操作が要る。
 
 ## 検討中（ToDo メモ。返事待ちではない）
 
@@ -77,6 +77,7 @@ Ministry of Business（40 帯）。2026-10-14 に `40_Business-Planning` の会�
 
 ## 片付いた返事待ち
 
+- V（手元のフォルダとこのプロジェクトの名前）：tezzo が「手元の park の改名と Apache の設定の書き換えをしてよい」「41_Park-Project を 41_Parks-Project に改名して」（2026-10-17）。htdocs の park → parks（Apache は /parks、古い /park は転送）、GitHub の 41_Park-Project → 41_Parks-Project、スタートアップを「PARKS AI つなぎ役」「PARKS 朝の点検」にした。
 - T（公開版のメールの送り元の名前）と V の公開版の部分：tezzo が「公開版の .env の書き換えと /parks への移し替えをしてよい」（2026-10-17）。公開版を https://www.jona.jp/parks/ に移し（サーバーの ~/parks）、古い /park/ は /parks/ へ転送するようにした。.env はサービス名・URL・クッキーの場所・送り元の名前（PARKS 運営事務局）を直した（前の .env はサーバーの ~/park-env-backup-20261017）。手元の AI のつなぎ役も /parks を見るようにして起動し直した。
 - U（企画書・契約書類の名前）：tezzo が「進めて」（2026-10-17）。PARKS にした新しい版を作った。
 - S（公開版への反映）：tezzo が「毎回反映して」（2026-10-17）。反映した（公開版でも park:status が見られる）。これからは park を push したら、公開版にも反映する（コード・migrate・キャッシュだけ。.env・データの削除・メールの送信は毎回了承を取る）。

@@ -13,7 +13,7 @@ model: opus
 
 ## 進め方
 
-1. `D:\xampp\htdocs\park\PLAN.md` の仕様と受け入れ条件を読む。
+1. `D:\xampp\htdocs\parks\PLAN.md` の仕様と受け入れ条件を読む。
 2. 変わったコード（`app`・`routes`・`resources/views`・`database/migrations`・`resources/manuals`）を読み、次の観点で問題を探す：
    - 仕様との不一致（値・挙動・条件・文言）
    - 境界条件の漏れ（0件・最後の1件・期限切れ・二重に押す・同時に起きる）

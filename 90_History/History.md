@@ -1,10 +1,11 @@
 # History
 
-PARK プロジェクト（41_Park-Project）で何をやったかの記録（作業履歴）。新しいものを上に足す。
+PARKS プロジェクト（41_Parks-Project）で何をやったかの記録（作業履歴）。新しいものを上に足す。
 今の状態は各フォルダの `CURRENT.md`、次にやること・返事待ちは [92_FromJoe](../92_FromJoe/CURRENT.md)、全体の概要は [概要](../00_Policy/概要.md)。
 
 ## 2026-10-17
 
+- htdocs の park を parks に（Apache は /parks。古い /park は転送）、このプロジェクトを 41_Parks-Project に（GitHub も）改名した。スタートアップのつなぎ役・朝の点検の名前と場所も直した。
 - 公開版を https://www.jona.jp/parks/ に移した（古い /park/ は転送）。.env の名前を PARKS にし、スクリプトと AI のつなぎ役の接続先を直した。
 - GitHub のリポジトリ park を parks に変えた（手元・公開サーバーの接続先も）。企画書・契約書類の PARKS 版を作り、前の版を 30 帯へ移した。
 - 名前を PARKS（複数形）にそろえた（アプリの画面・メールの文・マニュアル・このプロジェクトの md。URL・フォルダ・GitHub・DB の名前と、議事録は変えていない）。立場ごとの操作手順書（ログイン・設定・メールの処理）を park に足し、04_Manual に写した。公開版にも反映した。

@@ -15,14 +15,14 @@ Parks プロジェクト（Ministry of Business、41）。**SES を GP として
 - GP＝複数の SES をグループ化したもの。GP に入った案件を、全 EG から適した人に割り振る。こちらは、案件のインプットの仕分けと応募、見栄えのいいスキルシートの作成、面談の質疑応答集を提供する。
 - 収益：案件に記載の金額（SES が SH から受け取る金額）に対し、成約時に初期費用 7%、その後は月額 3%（案件の契約が続く間。契約は3か月で、延長は SH の判断）。払うのは SES。
 - **最優先は、エンジニアの成約率を上げること**（2026-10-14 tezzo）。中核（成約まで）とオプション（成約のあと、育てる方向）に分け、阿部さんに何を渡すかは tezzo が決める。詳しくは `31_企画書の検討/2026-10-14-03-成約率を最優先にする.md`。企画書（PowerPoint）の制作は保留中。
-- **PARKS アプリは htdocs の `park`**（PHP の Laravel 12 ＋ MySQL、DB は `jonassan_park`、http://localhost/park/、GitHub は jonassan047/parks で公開）。公開版は https://www.jona.jp/parks/（Xserver、2026-10-16〜。2026-10-17 に /park から移し、古い /park/ は転送。更新の手順は park の README）。2026-10-15 に Node.js の試作（`81_PARKアプリ`）から移した。アプリの作業は htdocs の `park` で Claude Code を起動して行う。htdocs のプロジェクトには `92_FromJoe` を置かないので、アプリの引き継ぎはこのプロジェクトの `92_FromJoe` と Desktop の `92_FromJoe` に書く。使い方は park の `README.md`、動作確認は `php artisan test`。
+- **PARKS アプリは htdocs の `parks`**（PHP の Laravel 12 ＋ MySQL、DB は `jonassan_park`、http://localhost/parks/、GitHub は jonassan047/parks で公開）。公開版は https://www.jona.jp/parks/（Xserver、2026-10-16〜。2026-10-17 に /park から移し、古い /park/ は転送。更新の手順は park の README）。2026-10-15 に Node.js の試作（`81_PARKアプリ`）から移した。アプリの作業は htdocs の `parks` で Claude Code を起動して行う。htdocs のプロジェクトには `92_FromJoe` を置かないので、アプリの引き継ぎはこのプロジェクトの `92_FromJoe` と Desktop の `92_FromJoe` に書く。使い方は parks の `README.md`、動作確認は `php artisan test`。
 - **80 帯（`80_企画書`・`81_契約書類`）は成果物（pptx・docx など）の今の版だけを置く**。古い版と、版ごとの違い・未決事項などの過程の md は、30 帯（`31_企画書の検討`・`32_契約書類の検討`）に書く（2026-10-16 tezzo）。
-- **サービスの名前は PARKS（複数形）**（2026-10-17 tezzo「全部複数形で統一」）。画面・メール・md は PARKS と書く。GitHub のリポジトリは 2026-10-17 に jonassan047/parks に変えた。URL（/park）・フォルダ・DB の名前（park）はまだ変えていない（返事待ち V）。
-- 運営・SES・エンジニア向けの操作手順書（ログイン・設定・メールの処理）は、park の `resources/manuals/*-steps.md`（アプリの「使い方」から読める）。写しは `04_Manual` の `〜向け操作手順書.md`。
+- **サービスの名前は PARKS（複数形）**（2026-10-17 tezzo「全部複数形で統一」）。画面・メール・md は PARKS と書く。2026-10-17 に、GitHub のリポジトリ（jonassan047/parks）・htdocs のフォルダ（parks）・URL（/parks。古い /park は転送）・このプロジェクトのフォルダ（41_Parks-Project）も変えた。DB の名前（jonassan_park）は中の名前なので変えていない。
+- 運営・SES・エンジニア向けの操作手順書（ログイン・設定・メールの処理）は、parks の `resources/manuals/*-steps.md`（アプリの「使い方」から読める）。写しは `04_Manual` の `〜向け操作手順書.md`。
 - tezzo 向けの運用手順書は `04_Manual/運用手順.md`（2026-10-17。正本はここ）。点検・反映・AI・了承の決まりを変えたら、これも直す。
 - PARKS アプリのマニュアルと README は、WIZ から読めるよう `04_Manual` に写しを置く（正本は park。park のマニュアル・README を直したら、写し直す。2026-10-16 tezzo）。
 - **PARKS のサブエージェント**は `.claude/agents`（2026-10-16〜17 tezzo の指示。ひな形は `90_Preferences/44_Agent-Template/.claude/agents`）。PARKS の仕事は、このチームに任せる。
-  - アプリを直すとき：park-planner（仕様と計画を park の `PLAN.md` に書く）→ park-implementer（実装）→ park-reviewer（読む専用でレビュー）→ park-tester（`php artisan test`）の順。指摘・不具合は implementer が直し、reviewer・tester をもう一度通す。commit・push と公開版への反映（下の常時了承の範囲）は JOE が行う。
+  - アプリを直すとき：park-planner（仕様と計画を parks の `PLAN.md` に書く）→ park-implementer（実装）→ park-reviewer（読む専用でレビュー）→ park-tester（`php artisan test`）の順。指摘・不具合は implementer が直し、reviewer・tester をもう一度通す。commit・push と公開版への反映（下の常時了承の範囲）は JOE が行う。
   - 点検と記録：park-manager（Git・テスト・`park:status`・公開版・手元の AI・マニュアルの写し・返事待ち）。結果は `40_動作確認` に書く。
   - **公開版への反映は常時了承済み**（2026-10-17 tezzo「毎回反映して」）：park の変更を push したら、`bash .claude/scripts/park-deploy.sh` で公開版に反映する（コードの更新・migrate・キャッシュだけ）。`.env` の書き換え・データの削除・メールの一斉送信は、これまでどおり毎回 tezzo の了承を取る。
   - **朝の点検**：FOCUS の起動時（その日の最初の1回）に、スタートアップの「PARK 朝の点検」が `.claude/scripts/park-morning-check.ps1` を動かし、park-manager が点検して push する（2026-10-17 tezzo）。公開版の状態は `.claude/scripts/park-remote-status.sh` で見るだけ（tezzo が了承済み。`.claude/settings.json` で許可）。記録は FOCUS の `~/.park-ai/morning-check.log`。
