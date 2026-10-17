@@ -15,14 +15,14 @@ function Log($m) { Add-Content -Path $log -Value ("[" + (Get-Date -Format 'yyyy-
 
 if (-not $Force -and (Test-Path $last) -and ((Get-Content $last -Raw).Trim() -eq $today)) { Log '今日はもう点検した。何もしない'; exit 0 }
 
-$project = 'D:\Users\rock\Workspace\41_Parks-Project'
+$project = 'D:\Users\rock\Workspace\41_Park-Project'
 $claude = Join-Path $env:USERPROFILE '.local\bin\claude.exe'
 $prompt = @"
 PARK の朝の点検をしてください（$today、FOCUS の起動時に自動で実行）。
 あなたの定義の「点検」の1〜7を順に確かめてください。公開版の状態は bash .claude/scripts/park-remote-status.sh で見るだけにし（tezzo が了承済み）、公開版を書き換えないでください。
 結果は 40_動作確認 に $today-NN-点検.md（NN はその日の次の番号）として書き、40_動作確認/CURRENT.md の「今の結論」に1行で足してください（命名規則.md の「3. ログと CURRENT.md」に従う）。
 問題があったら、92_FromJoe/CURRENT.md の「次にやること」にも1行で足してください。返事待ちは足さないでください。
-書いたら 41_Parks-Project を commit・push してください（コミットの最後に Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>）。park のコードは変えないでください。
+書いたら 41_Park-Project を commit・push してください（コミットの最後に Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>）。park のコードは変えないでください。
 "@
 
 if ($DryRun) { Write-Output "（試し）$claude -p ... --agent park-manager --permission-mode auto（場所：$project）"; Write-Output $prompt; exit 0 }

@@ -5,6 +5,7 @@ PARKS プロジェクト（41_Parks-Project）で何をやったかの記録（�
 
 ## 2026-10-17
 
+- tezzo の指示で、parks にしていた名前を全部 park（単数）に戻した（GitHub・htdocs・URL・公開版・画面とメールの文・マニュアル・企画書・契約書類・エージェントとスクリプトの名前。企画書と契約書類は PARKS 版を 31・32 に移し、新しい版を 80・81 に置いた）。固定の枠のフォルダ名（04_Manuals など）は複数形のまま。
 - 04_Manuals の下に 運営・SES・エンジニア のフォルダを作り、それぞれのマニュアルと操作手順書を移した。ファイル名は「〜向け」を外して マニュアル.md・操作手順書.md にした（README と運用手順は 04_Manuals 直下のまま）。リンクと CLAUDE.md・park-manager の説明も直した。
 - htdocs の park を parks に（Apache は /parks。古い /park は転送）、このプロジェクトを 41_Parks-Project に（GitHub も）改名した。スタートアップのつなぎ役・朝の点検の名前と場所も直した。
 - 公開版を https://www.jona.jp/parks/ に移した（古い /park/ は転送）。.env の名前を PARKS にし、スクリプトと AI のつなぎ役の接続先を直した。
