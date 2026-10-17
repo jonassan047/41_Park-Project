@@ -20,9 +20,9 @@ Park プロジェクト（Ministry of Business、41）。**SES を GP として�
 - **PARK アプリは htdocs の `park`**（PHP の Laravel 12 ＋ MySQL、DB は `jonassan_park`、http://localhost/park/、GitHub は jonassan047/park で公開）。公開版は https://www.jona.jp/park/（Xserver、2026-10-16〜。更新の手順は park の README）。2026-10-15 に Node.js の試作（`81_PARKアプリ`）から移した。アプリの作業は htdocs の `park` で Claude Code を起動して行う。htdocs のプロジェクトには `92_FromJoe` を置かないので、アプリの引き継ぎはこのプロジェクトの `92_FromJoe` と Desktop の `92_FromJoe` に書く。使い方は park の `README.md`、動作確認は `php artisan test`。
 - **80 帯（`80_企画書`・`81_契約書類`）は成果物（pptx・docx など）の今の版だけを置く**。古い版と、版ごとの違い・未決事項などの過程の md は、30 帯（`31_企画書の検討`・`32_契約書類の検討`）に書く（2026-10-16 tezzo）。
 - **サービスの名前は PARK（単数）**（2026-10-17 tezzo「park は単数。parks に変えたものは全部 park に戻す」）。画面・メール・md は PARK と書く。GitHub のリポジトリ（jonassan047/park）・htdocs のフォルダ（park）・URL（/park）・このプロジェクトのフォルダ（41_Park-Project）も単数。DB の名前（jonassan_park）は変えていない。なお、固定の枠のフォルダ名（04_Manuals など）は複数形（`命名規則.md`）。
-- 運営・SES・エンジニア向けの操作手順書（ログイン・設定・メールの処理）は、park の `resources/manuals/*-steps.md`（アプリの「使い方」から読める）。写しは `04_Manuals` の `運営`・`SES`・`エンジニア` フォルダの `操作手順書.md`。
+- 管理者・SES・エンジニア向けの操作手順書（ログイン・設定・メールの処理）は、park の `resources/manuals/*-steps.md`（アプリの「使い方」から読める）。写しは `04_Manuals` の `管理者`・`SES`・`エンジニア` フォルダの `操作手順書.md`。
 - tezzo 向けの運用手順書は `04_Manuals/運用手順.md`（2026-10-17。正本はここ）。点検・反映・AI・了承の決まりを変えたら、これも直す。
-- PARK アプリのマニュアルと README は、WIZ から読めるよう `04_Manuals` に写しを置く（運営・SES・エンジニア向けは、それぞれ同名のフォルダの下の `マニュアル.md`。正本は park。park のマニュアル・README を直したら、写し直す。2026-10-16 tezzo）。
+- PARK アプリのマニュアルと README は、WIZ から読めるよう `04_Manuals` に写しを置く（管理者・SES・エンジニア向けは、それぞれ同名のフォルダの下の `マニュアル.md`。正本は park。park のマニュアル・README を直したら、写し直す。2026-10-16 tezzo）。
 - **PARK のサブエージェント**は `.claude/agents`（2026-10-16〜17 tezzo の指示。ひな形は `90_Preferences/44_Agent-Template/.claude/agents`）。PARK の仕事は、このチームに任せる。
   - アプリを直すとき：park-planner（仕様と計画を park の `PLAN.md` に書く）→ park-implementer（実装）→ park-reviewer（読む専用でレビュー）→ park-tester（`php artisan test`）の順。指摘・不具合は implementer が直し、reviewer・tester をもう一度通す。commit・push と公開版への反映（下の常時了承の範囲）は JOE が行う。
   - 点検と記録：park-manager（Git・テスト・`park:status`・公開版・手元の AI・マニュアルの写し・返事待ち）。結果は `40_動作確認` に書く。
