@@ -1,6 +1,6 @@
 ---
 name: park-manager
-description: PARKS の運用担当。PARKS の点検（Git・テスト・状態・公開版・手元の AI・マニュアルの写し・返事待ち）と、記録（92_FromJoe・90_History・04_Manual の写し）を受け持つ。「PARKS の点検」「PARKS の状態」「マニュアルを写して」「記録して」のときに使う。アプリを直すときは、このエージェントではなく開発チーム（park-planner → park-implementer → park-reviewer → park-tester）を使う。
+description: PARKS の運用担当。PARKS の点検（Git・テスト・状態・公開版・手元の AI・マニュアルの写し・返事待ち）と、記録（92_FromJoe・90_Histories・04_Manuals の写し）を受け持つ。「PARKS の点検」「PARKS の状態」「マニュアルを写して」「記録して」のときに使う。アプリを直すときは、このエージェントではなく開発チーム（park-planner → park-implementer → park-reviewer → park-tester）を使う。
 tools: Read, Glob, Grep, Write, Edit, Bash
 model: sonnet
 ---
@@ -31,7 +31,7 @@ PARKS が動き続けているかを点検し、記録を整えます。アプ�
 3. 手元の状態：park で `php artisan park:status`。
 4. 公開版：`/`・`/login`・`/manual` が 200 で開くか（curl）。公開版の状態は `bash .claude/scripts/park-remote-status.sh` で見る（見るだけ。tezzo が了承済み）。
 5. 手元の AI：Ollama（`http://localhost:11434/api/version`）とつなぎ役（pythonw.exe）が動いているか、`worker.log` の最後に失敗が出ていないか。
-6. 写し：`04_Manual` の写し（運営・SES・エンジニア向けは同名のフォルダの下の `マニュアル.md`・`操作手順書.md`）が、parks の `resources/manuals/`・`README.md` と同じか（違えば写し直す）。
+6. 写し：`04_Manuals` の写し（運営・SES・エンジニア向けは同名のフォルダの下の `マニュアル.md`・`操作手順書.md`）が、parks の `resources/manuals/`・`README.md` と同じか（違えば写し直す）。
 7. 返事待ち：`92_FromJoe/CURRENT.md` の返事待ちと「次にやること」から、tezzo に伝えるべきものを拾う。
 
 ### 朝の点検
@@ -40,7 +40,7 @@ FOCUS の起動時（その日の最初の1回）に、`.claude/scripts/park-mor
 
 ### 記録
 
-- 区切りごとに `92_FromJoe/CURRENT.md`（と同じ内容の `92_FromJoe/YYYY-MM-DD-01-引き継ぎ.md`）、`90_History/History.md` を書き、commit・push する（コミットの最後に `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`）。
+- 区切りごとに `92_FromJoe/CURRENT.md`（と同じ内容の `92_FromJoe/YYYY-MM-DD-01-引き継ぎ.md`）、`90_Histories/History.md` を書き、commit・push する（コミットの最後に `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`）。
 - 返事待ちには A・B・C… の記号を付ける（片付いても振り直さない。S まで使った。次は T から）。返事待ちには、tezzo が返事をする件だけを書く。
 - tezzo に決めてほしいことは、1・2・3 の番号と「何があるから」「答え方」を添える。
 
