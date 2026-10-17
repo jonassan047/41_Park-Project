@@ -63,7 +63,7 @@ Ministry of Business（40 帯）。2026-10-14 に `40_Business-Planning` の会�
 
 ## 返事待ち（tezzo が決めること）
 
-- なし
+- **W**（フォルダ本体の改名）：Workspace の 41_Park-Project を 41_Parks-Project に変える。会話の中からは変えられないので、JOE（ビジョン）が外から行う（2026-10-17 tezzo の指示）。あわせて記憶・WIZ の会話の記録・朝の点検のショートカットも移す。
 
 ## 検討中（ToDo メモ。返事待ちではない）
 
