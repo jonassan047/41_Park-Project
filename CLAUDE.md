@@ -15,9 +15,9 @@ Parks プロジェクト（Ministry of Business、41）。**SES を GP として
 - GP＝複数の SES をグループ化したもの。GP に入った案件を、全 EG から適した人に割り振る。こちらは、案件のインプットの仕分けと応募、見栄えのいいスキルシートの作成、面談の質疑応答集を提供する。
 - 収益：案件に記載の金額（SES が SH から受け取る金額）に対し、成約時に初期費用 7%、その後は月額 3%（案件の契約が続く間。契約は3か月で、延長は SH の判断）。払うのは SES。
 - **最優先は、エンジニアの成約率を上げること**（2026-10-14 tezzo）。中核（成約まで）とオプション（成約のあと、育てる方向）に分け、阿部さんに何を渡すかは tezzo が決める。詳しくは `31_企画書の検討/2026-10-14-03-成約率を最優先にする.md`。企画書（PowerPoint）の制作は保留中。
-- **PARKS アプリは htdocs の `park`**（PHP の Laravel 12 ＋ MySQL、DB は `jonassan_park`、http://localhost/park/、GitHub は jonassan047/park で公開）。公開版は https://www.jona.jp/park/（Xserver、2026-10-16〜。更新の手順は park の README）。2026-10-15 に Node.js の試作（`81_PARKアプリ`）から移した。アプリの作業は htdocs の `park` で Claude Code を起動して行う。htdocs のプロジェクトには `92_FromJoe` を置かないので、アプリの引き継ぎはこのプロジェクトの `92_FromJoe` と Desktop の `92_FromJoe` に書く。使い方は park の `README.md`、動作確認は `php artisan test`。
+- **PARKS アプリは htdocs の `park`**（PHP の Laravel 12 ＋ MySQL、DB は `jonassan_park`、http://localhost/park/、GitHub は jonassan047/parks で公開）。公開版は https://www.jona.jp/park/（Xserver、2026-10-16〜。更新の手順は park の README）。2026-10-15 に Node.js の試作（`81_PARKアプリ`）から移した。アプリの作業は htdocs の `park` で Claude Code を起動して行う。htdocs のプロジェクトには `92_FromJoe` を置かないので、アプリの引き継ぎはこのプロジェクトの `92_FromJoe` と Desktop の `92_FromJoe` に書く。使い方は park の `README.md`、動作確認は `php artisan test`。
 - **80 帯（`80_企画書`・`81_契約書類`）は成果物（pptx・docx など）の今の版だけを置く**。古い版と、版ごとの違い・未決事項などの過程の md は、30 帯（`31_企画書の検討`・`32_契約書類の検討`）に書く（2026-10-16 tezzo）。
-- **サービスの名前は PARKS（複数形）**（2026-10-17 tezzo「全部複数形で統一」）。画面・メール・md は PARKS と書く。URL（/park）・フォルダ・GitHub・DB の名前（park）は変えていない。
+- **サービスの名前は PARKS（複数形）**（2026-10-17 tezzo「全部複数形で統一」）。画面・メール・md は PARKS と書く。GitHub のリポジトリは 2026-10-17 に jonassan047/parks に変えた。URL（/park）・フォルダ・DB の名前（park）はまだ変えていない（返事待ち V）。
 - 運営・SES・エンジニア向けの操作手順書（ログイン・設定・メールの処理）は、park の `resources/manuals/*-steps.md`（アプリの「使い方」から読める）。写しは `04_Manual` の `〜向け操作手順書.md`。
 - tezzo 向けの運用手順書は `04_Manual/運用手順.md`（2026-10-17。正本はここ）。点検・反映・AI・了承の決まりを変えたら、これも直す。
 - PARKS アプリのマニュアルと README は、WIZ から読めるよう `04_Manual` に写しを置く（正本は park。park のマニュアル・README を直したら、写し直す。2026-10-16 tezzo）。

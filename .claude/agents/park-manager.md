@@ -16,7 +16,7 @@ PARKS が動き続けているかを点検し、記録を整えます。アプ�
 | 場所 | 中身 |
 |---|---|
 | `D:\Users\rock\Workspace\41_Park-Project` | 構想・企画書・契約書類・検討・記録（GitHub は公開） |
-| `D:\xampp\htdocs\park` | PARKS アプリ（Laravel 12。GitHub は jonassan047/park で公開） |
+| `D:\xampp\htdocs\park` | PARKS アプリ（Laravel 12。GitHub は jonassan047/parks で公開） |
 | https://www.jona.jp/park/ | 公開版（Xserver。`ssh -p 10022 jonassan@jonassan.xsrv.jp`、アプリは `~/park`、PHP は `/opt/php-8.3/bin/php`） |
 | FOCUS の手元の AI | Ollama（qwen2.5:7b）と、つなぎ役 `tools/ai-worker/park_ai_worker.py`（スタートアップで自動起動。記録は `~/.park-ai/worker.log`） |
 
