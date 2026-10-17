@@ -14,7 +14,9 @@ Parks プロジェクト（Ministry of Business、41）。**SES を GP として
 - **PARK アプリは htdocs の `park`**（PHP の Laravel 12 ＋ MySQL、DB は `jonassan_park`、http://localhost/park/、GitHub は jonassan047/park で公開）。公開版は https://www.jona.jp/park/（Xserver、2026-10-16〜。更新の手順は park の README）。2026-10-15 に Node.js の試作（`81_PARKアプリ`）から移した。アプリの作業は htdocs の `park` で Claude Code を起動して行う。htdocs のプロジェクトには `92_FromJoe` を置かないので、アプリの引き継ぎはこのプロジェクトの `92_FromJoe` と Desktop の `92_FromJoe` に書く。使い方は park の `README.md`、動作確認は `php artisan test`。
 - **80 帯（`80_企画書`・`81_契約書類`）は成果物（pptx・docx など）の今の版だけを置く**。古い版と、版ごとの違い・未決事項などの過程の md は、30 帯（`31_企画書の検討`・`32_契約書類の検討`）に書く（2026-10-16 tezzo）。
 - PARK アプリのマニュアルと README は、WIZ から読めるよう `04_Manual` に写しを置く（正本は park。park のマニュアル・README を直したら、写し直す。2026-10-16 tezzo）。
-- **PARK の担当エージェント**は `.claude/agents/park-manager.md`（2026-10-16 tezzo の指示で作った）。点検（Git・テスト・`park:status`・公開版・手元の AI・写し・返事待ち）、アプリの変更とテスト、記録を受け持つ。PARK の仕事は、このエージェントに任せる。
+- **PARK のサブエージェント**は `.claude/agents`（2026-10-16〜17 tezzo の指示。ひな形は `90_Preferences/44_Agent-Template/.claude/agents`）。PARK の仕事は、このチームに任せる。
+  - アプリを直すとき：park-planner（仕様と計画を park の `PLAN.md` に書く）→ park-implementer（実装）→ park-reviewer（読む専用でレビュー）→ park-tester（`php artisan test`）の順。指摘・不具合は implementer が直し、reviewer・tester をもう一度通す。commit・push・公開版への反映は JOE が tezzo の了承を取って行う。
+  - 点検と記録：park-manager（Git・テスト・`park:status`・公開版・手元の AI・マニュアルの写し・返事待ち）。
 - 何をやったかの記録（作業履歴）は `90_History/History.md`（新しいものを上に足す。作業の区切りで追記する）。
 - 全体の概要は `00_Policy/概要.md`。詳しい整理は `30_検討/CURRENT.md`、決めること・次にやることは `92_FromJoe/CURRENT.md`。用語は `06_Glossary/用語集.md`。
 

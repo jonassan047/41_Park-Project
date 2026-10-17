@@ -3,6 +3,10 @@
 PARK プロジェクト（41_Park-Project）で何をやったかの記録（作業履歴）。新しいものを上に足す。
 今の状態は各フォルダの `CURRENT.md`、次にやること・返事待ちは [92_FromJoe](../92_FromJoe/CURRENT.md)、全体の概要は [概要](../00_Policy/概要.md)。
 
+## 2026-10-17
+
+- PARK のサブエージェントを、ひな形（90_Preferences の 44_Agent-Template）に合わせて作り直した（開発チーム4人＋運用担当の park-manager）。
+
 ## 2026-10-16
 
 - PARK 担当エージェント（`.claude/agents/park-manager.md`）を作り、点検用のコマンド `park:status` を PARK に足した。

@@ -42,6 +42,7 @@ Ministry of Business（40 帯）。2026-10-14 に `40_Business-Planning` の会�
 - 2026-10-16（FOCUS）：手元のアプリで、本物の AI（FOCUS の Ollama、qwen2.5:7b、CPU だけ）を使って両方の仕事を確かめた。面談スクリプトの言い回しは11項目そろって約2分半、経歴書（テキスト）からの下書きは2件の案件に分けて約45秒。AI が項目を省いたときは「失敗」にして、もう一度頼めるようにした。試しに使ったデータは消した。
 - 2026-10-16（FOCUS）：公開版に今日の4つを反映した。FOCUS の AI のつなぎ役が、公開版（https://www.jona.jp/park）の AI の仕事を取りに行っている（Windows の起動で自動。合言葉は FOCUS の ~/.park-ai/config.json にだけ置いた）。
 - 2026-10-16（FOCUS）：tezzo の指示で、このプロジェクトを管理する **PARK 担当エージェント**（[.claude/agents/park-manager.md](.claude/agents/park-manager.md)）を作った。点検の手順（Git・テスト・状態・公開版・手元の AI・マニュアルの写し・返事待ち）と、守ること（公開版の書き換え・送信・削除は了承を取る、個人情報を書かない、外部に出さない）を書いた。点検用に PARK に `php artisan park:status`（数だけを出す）を足した。
+- 2026-10-17（FOCUS）：tezzo の指示で、PARK のサブエージェントを、ひな形（[44_Agent-Template](../90_Preferences/44_Agent-Template/.claude/agents)。計画・実装・レビュー・テストの4人）に合わせて作り直した。開発チーム（park-planner・park-implementer・park-reviewer・park-tester）と、運用担当の park-manager の5人（[.claude/agents](.claude/agents)）。
 - tezzo は CLI（黒い画面）が苦手。WIZ の入力欄で続ける。
 - 2026-10-15（FOCUS）：tezzo の指示で、PARK アプリのログインを**2要素認証**（認証アプリの6桁のコード）にし、**マニュアル**を3種類（運営・SES・エンジニア）作った。マニュアルはアプリの「使い方」（http://localhost/park/manual）から読める。正本は park の `resources/manuals/`。
 - 2026-10-16（FOCUS）：tezzo の指示で、PARK アプリを **https://www.jona.jp/park/** に公開した（Xserver。DB は `jonassan_park`、見本データなし）。運営のアカウント（tezzo047@gmail.com）の招待のリンクを tezzo に渡した（7日間有効）。メールはまだ「保存のみ」。更新の手順は park の `README.md`。
