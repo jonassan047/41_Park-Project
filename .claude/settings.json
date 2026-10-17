@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bash .claude/scripts/park-remote-status.sh)"
+    ]
+  }
+}
