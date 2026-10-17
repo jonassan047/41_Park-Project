@@ -45,6 +45,7 @@ Ministry of Business（40 帯）。2026-10-14 に `40_Business-Planning` の会�
 - 2026-10-17（FOCUS）：tezzo の指示で、PARK のサブエージェントを、ひな形（[44_Agent-Template](../90_Preferences/44_Agent-Template/.claude/agents)。計画・実装・レビュー・テストの4人）に合わせて作り直した。開発チーム（park-planner・park-implementer・park-reviewer・park-tester）と、運用担当の park-manager の5人（[.claude/agents](.claude/agents)）。
 - 2026-10-17（FOCUS）：tezzo の指示で、park-manager が最初の点検をした（[40_動作確認/2026-10-17-01-点検.md](40_動作確認/2026-10-17-01-点検.md)）。公開版に `park:status` がまだ無い以外は問題なし。公開版の状態を見るだけのスクリプトを許可に足し（tezzo が了承）、FOCUS の起動時（その日の最初の1回）に自動で点検するようにした（スタートアップの「PARK 朝の点検」）。
 - 2026-10-17（FOCUS）：公開版に park の最新を反映した。tezzo の「毎回反映して」で、これからの反映は了承済み（`.claude/scripts/park-deploy.sh`）。
+- 2026-10-17（FOCUS）：tezzo の指示で、tezzo 向けの運用手順書 [04_Manual/運用手順.md](04_Manual/運用手順.md) を作った（毎朝の点検、ログイン、人を増やす、直してほしいとき、手元の AI、困ったとき、了承が要ること）。
 - tezzo は CLI（黒い画面）が苦手。WIZ の入力欄で続ける。
 - 2026-10-15（FOCUS）：tezzo の指示で、PARK アプリのログインを**2要素認証**（認証アプリの6桁のコード）にし、**マニュアル**を3種類（運営・SES・エンジニア）作った。マニュアルはアプリの「使い方」（http://localhost/park/manual）から読める。正本は park の `resources/manuals/`。
 - 2026-10-16（FOCUS）：tezzo の指示で、PARK アプリを **https://www.jona.jp/park/** に公開した（Xserver。DB は `jonassan_park`、見本データなし）。運営のアカウント（tezzo047@gmail.com）の招待のリンクを tezzo に渡した（7日間有効）。メールはまだ「保存のみ」。更新の手順は park の `README.md`。
