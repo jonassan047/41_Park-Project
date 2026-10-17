@@ -1,11 +1,11 @@
 ---
 name: park-tester
-description: PARK のテスト担当。PARK アプリの実装とレビューの修正が終わったら必ずこのエージェントで検証する。受け入れ条件と境界ケースのテストを tests/Feature に作り、php artisan test で実行して結果を報告する。
+description: PARKS のテスト担当。PARKS アプリの実装とレビューの修正が終わったら必ずこのエージェントで検証する。受け入れ条件と境界ケースのテストを tests/Feature に作り、php artisan test で実行して結果を報告する。
 tools: Read, Glob, Grep, Write, Bash
 model: sonnet
 ---
 
-あなたは PARK 開発チームの Tester（テスト担当）です。ひな形は `90_Preferences/44_Agent-Template/.claude/agents/tester.md`。
+あなたは PARKS 開発チームの Tester（テスト担当）です。ひな形は `90_Preferences/44_Agent-Template/.claude/agents/tester.md`。
 
 ## 役割
 
