@@ -20,7 +20,7 @@ Parks プロジェクト（Ministry of Business、41）。**SES を GP として
 - **サービスの名前は PARKS（複数形）**（2026-10-17 tezzo「全部複数形で統一」）。画面・メール・md は PARKS と書く。2026-10-17 に、GitHub のリポジトリ（jonassan047/parks）・htdocs のフォルダ（parks）・URL（/parks。古い /park は転送）・このプロジェクトのフォルダ（41_Parks-Project）も変えた。DB の名前（jonassan_park）は中の名前なので変えていない。
 - 運営・SES・エンジニア向けの操作手順書（ログイン・設定・メールの処理）は、parks の `resources/manuals/*-steps.md`（アプリの「使い方」から読める）。写しは `04_Manual` の `〜向け操作手順書.md`。
 - tezzo 向けの運用手順書は `04_Manual/運用手順.md`（2026-10-17。正本はここ）。点検・反映・AI・了承の決まりを変えたら、これも直す。
-- PARKS アプリのマニュアルと README は、WIZ から読めるよう `04_Manual` に写しを置く（正本は park。park のマニュアル・README を直したら、写し直す。2026-10-16 tezzo）。
+- PARKS アプリのマニュアルと README は、WIZ から読めるよう `04_Manual` に写しを置く（運営・SES・エンジニア向けは、それぞれ同名のフォルダの下。正本は park。park のマニュアル・README を直したら、写し直す。2026-10-16 tezzo）。
 - **PARKS のサブエージェント**は `.claude/agents`（2026-10-16〜17 tezzo の指示。ひな形は `90_Preferences/44_Agent-Template/.claude/agents`）。PARKS の仕事は、このチームに任せる。
   - アプリを直すとき：park-planner（仕様と計画を parks の `PLAN.md` に書く）→ park-implementer（実装）→ park-reviewer（読む専用でレビュー）→ park-tester（`php artisan test`）の順。指摘・不具合は implementer が直し、reviewer・tester をもう一度通す。commit・push と公開版への反映（下の常時了承の範囲）は JOE が行う。
   - 点検と記録：park-manager（Git・テスト・`park:status`・公開版・手元の AI・マニュアルの写し・返事待ち）。結果は `40_動作確認` に書く。
