@@ -3,7 +3,9 @@
     "allow": [
       "Bash(bash .claude/scripts/park-remote-status.sh)",
       "Bash(bash .claude/scripts/park-deploy.sh)",
-      "Bash(ssh -o BatchMode=yes -o ConnectTimeout=15 -p 10022 jonassan@jonassan.xsrv.jp *)"
+      "Bash(ssh -o BatchMode=yes -o ConnectTimeout=15 -p 10022 jonassan@jonassan.xsrv.jp *)",
+	  "Bash(ssh -o BatchMode=yes -o ConnectTimeout=15 -p 10022 jonassan@jonassan.xsrv.jp 'cd ~/park && /opt/php-8.3/bin/php artisan tinker' < /tmp/parkmail/*)",
+      "Bash(ssh -o BatchMode=yes -o ConnectTimeout=15 -p 10022 jonassan@jonassan.xsrv.jp 'cd ~/park && /opt/php-8.3/bin/php artisan tinker --execute=*)"
     ]
   }
 }
