@@ -44,6 +44,7 @@ Ministry of Business（40 帯）。2026-10-14 に `40_Business-Planning` の会�
 - 2026-10-16（FOCUS）：tezzo の指示で、このプロジェクトを管理する **PARK 担当エージェント**（[.claude/agents/park-manager.md](.claude/agents/park-manager.md)）を作った。点検の手順（Git・テスト・状態・公開版・手元の AI・マニュアルの写し・返事待ち）と、守ること（公開版の書き換え・送信・削除は了承を取る、個人情報を書かない、外部に出さない）を書いた。点検用に PARK に `php artisan park:status`（数だけを出す）を足した。
 - 2026-10-17（FOCUS）：tezzo の指示で、PARK のサブエージェントを、ひな形（[44_Agent-Template](../90_Preferences/44_Agent-Template/.claude/agents)。計画・実装・レビュー・テストの4人）に合わせて作り直した。開発チーム（park-planner・park-implementer・park-reviewer・park-tester）と、運用担当の park-manager の5人（[.claude/agents](.claude/agents)）。
 - 2026-10-17（FOCUS）：tezzo の指示で、park-manager が最初の点検をした（[40_動作確認/2026-10-17-01-点検.md](40_動作確認/2026-10-17-01-点検.md)）。公開版に `park:status` がまだ無い以外は問題なし。公開版の状態を見るだけのスクリプトを許可に足し（tezzo が了承）、FOCUS の起動時（その日の最初の1回）に自動で点検するようにした（スタートアップの「PARK 朝の点検」）。
+- 2026-10-17（FOCUS）：公開版に park の最新を反映した。tezzo の「毎回反映して」で、これからの反映は了承済み（`.claude/scripts/park-deploy.sh`）。
 - tezzo は CLI（黒い画面）が苦手。WIZ の入力欄で続ける。
 - 2026-10-15（FOCUS）：tezzo の指示で、PARK アプリのログインを**2要素認証**（認証アプリの6桁のコード）にし、**マニュアル**を3種類（運営・SES・エンジニア）作った。マニュアルはアプリの「使い方」（http://localhost/park/manual）から読める。正本は park の `resources/manuals/`。
 - 2026-10-16（FOCUS）：tezzo の指示で、PARK アプリを **https://www.jona.jp/park/** に公開した（Xserver。DB は `jonassan_park`、見本データなし）。運営のアカウント（tezzo047@gmail.com）の招待のリンクを tezzo に渡した（7日間有効）。メールはまだ「保存のみ」。更新の手順は park の `README.md`。
@@ -57,7 +58,7 @@ Ministry of Business（40 帯）。2026-10-14 に `40_Business-Planning` の会�
 
 ## 返事待ち（tezzo が決めること）
 
-- **S**（公開版に park の最新を反映するか）：点検用のコマンド `park:status` は、まだ公開版に入っていない。反映すると、朝の点検で公開版の数（メールの失敗・AI の順番待ち・確認待ちなど）も見られる。中身は数を出すコマンドを足すだけ。
+- なし
 
 ## 検討中（ToDo メモ。返事待ちではない）
 
@@ -72,6 +73,7 @@ Ministry of Business（40 帯）。2026-10-14 に `40_Business-Planning` の会�
 
 ## 片付いた返事待ち
 
+- S（公開版への反映）：tezzo が「毎回反映して」（2026-10-17）。反映した（公開版でも park:status が見られる）。これからは park を push したら、公開版にも反映する（コード・migrate・キャッシュだけ。.env・データの削除・メールの送信は毎回了承を取る）。
 - Q（公開版への反映）：tezzo が「OK」（2026-10-16）。入口の一本化・返事のリンク・今やること・AI の仕事の箱を公開版に反映し、公開版の .env に AI の合言葉を入れた。
 - R（AI のつなぎ役の自動起動）：tezzo が「OK」（2026-10-16）。FOCUS のスタートアップに「PARK AI つなぎ役」を入れ、公開版の仕事を取りに行くようにした（Ollama も起動時に動く）。
 - N（直す順）：tezzo が「最適だと思う手順で先ず作成して、順を追って補正して行こう」（2026-10-16）。ジョーの順（入口を1つに → 返事のリンク → 今やること → AI の仕事の箱）で作った。
