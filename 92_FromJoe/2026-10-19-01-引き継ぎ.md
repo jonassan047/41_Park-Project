@@ -8,15 +8,13 @@ Ministry of Business（40 帯）。2026-10-14 に `40_Business-Planning` の会�
 
 ## 現状（ここまで）
 
-- **2026-10-19（FOCUS・Leo）登録欄・ダッシュボードの整備と、見本データを 0 に戻す作業（途中。tezzo は /clear して続ける）**
-  - 入れたもの（park `6d66d4d`、テスト177件が通る、公開版に反映・migrate 済み）：氏名・ふりがなを姓・名に分けた（`name_sei`・`name_mei`・`kana_sei`・`kana_mei`。`name`・`kana` は結合して残す）／本人用の登録情報の確認画面 `/account/profile`／管理者のダッシュボードを「管理者・SES を招待する」から始まる形に（空のとき「PARK をはじめましょう」、招待の状況カード）／タブの「選択中」の不具合（ダッシュボードが外れない）を修正／見本データ（`SampleSeeder`）と削除コマンド `park:purge-samples`。計画は park の `PLAN.md`。
-  - tezzo の指示：見本もエンジニア id=10 も含め、**管理者 tezzo だけを残して 0 に戻す**（手元・公開版とも。バックアップを取ってから）。
-  - **手元（localhost）は完了**：`storage/app/reset-local.sql` で tezzo の管理者（id=11、tezzo047@gmail.com）だけにした（バックアップ：`~/db-backup/jonassan_park-before-reset-202610191806.sql`）。
-  - **公開版は途中**（公開版の DB 操作は自動の安全チェックで止められるため、tezzo が Git Bash で `ssh -p 10022 jonassan@jonassan.xsrv.jp` に入って自分で実行する）：
-    - 済み：tezzo の管理者を招待し、パスワード・確認コード・「あなたの情報」まで登録済み。バックアップ取得済み（サーバーの `~/db-backup/park-before-reset-202610191823.sql`、198,893 バイト。`…1819.sql` は 0 バイトの失敗なので無視）。
-    - **次**：サーバーで `cd ~/park` と `set -a; . ./.env; set +a` のあと、(C-1) `MYSQL_PWD="$DB_PASSWORD" mysql -h "${DB_HOST:-localhost}" -u "$DB_USERNAME" "$DB_DATABASE" -e "SELECT id, role, active, (password IS NOT NULL AND password<>'') AS has_password FROM users WHERE email='tezzo047@gmail.com'"` で、1 行出て has_password が 1 なのを確かめる。その結果を貼ってもらい、(C-2) 削除（`reset-local.sql` と同じ順番の SQL。`SET @keep = (SELECT id FROM users WHERE email='tezzo047@gmail.com' AND role='admin' LIMIT 1)` で tezzo だけ残す。先に `test -n "$(…SELECT id…)" &&` の安全装置を付ける。順番は子テーブル→applications/cases→engineer 系→users→engineers→ses_companies）を渡して実行してもらう。終わったら `bash .claude/scripts/park-remote-status.sh` で見本データが 0 になったか確認。
-    - 注意：説明の文（「表示の例」など）まで一緒に貼ると、サーバーでエラーになる（無害）。コマンドの囲みだけを貼ってもらう。ssh 鍵のエラーは PowerShell の `ssh` で出るので、Git Bash を使う。
-  - そのあとの残り：画面の確認（`/welcome`・`/account`・`/account/profile`・`/admin` の「はじめましょう」）、`04_Manuals` の管理者・SES・エンジニアのマニュアル写しを park の `resources/manuals` から写し直す、README の「公開版に見本は入れていない」行の確認、`90_Histories/History.md` への追記、エンジニアの書類の実ファイル（`storage/app` の engineers）の片付け。
+- **2026-10-19（FOCUS・Leo）登録欄・ダッシュボードの整備と、見本データを 0 に戻す作業（完了）**
+  - 入れたもの（park `6d66d4d`、テスト177件が通る、公開版に反映・migrate 済み）：氏名・ふりがなを姓・名に分けた（`name_sei`・`name_mei`・`kana_sei`・`kana_mei`。`name`・`kana` は結合して残す）／本人用の登録情報の確認画面 `/account/profile`／管理者のダッシュボードを「管理者・SES を招待する」から始まる形に（空のとき「PARK をはじめましょう」、招待の状況カード）／タブの「選択中」の不具合を修正／見本データ（`SampleSeeder`）と削除コマンド `park:purge-samples`。計画は park の `PLAN.md`。
+  - 見本もエンジニア id=10 も消し、**管理者 tezzo だけを残して 0 に戻した**（手元・公開版とも）。手元のバックアップ：`~/db-backup/jonassan_park-before-reset-202610191806.sql`。公開版のバックアップ：サーバーの `~/db-backup/park-before-reset-202610191823.sql`（198,893 バイト。`…1819.sql` は 0 バイトの失敗なので無視）。
+  - 公開版は tezzo が Git Bash でサーバーに入り、安全装置付きの SQL を実行した（公開版の DB 操作は自動の安全チェックで止められるため）。`park-remote-status.sh` で見本データ 0・エラーなしを確認。tezzo の管理者は id=1 で、画面に「PARK をはじめましょう」が出ることも tezzo のスクリーンショットで確認した。
+  - マニュアル・操作手順書・README の写し（[04_Manuals](04_Manuals)）は、park の正本から写し直した。README の見本データの記述は今の状態と合っている。
+  - 気づいたこと：公開版のベルに赤い「8」（未読の通知）が出ている。削除では tezzo 宛ての通知を残したので、見本データ時代の通知かもしれない。中身は未確認（返事待ち A）。
+  - 残り：エンジニアの書類の実ファイル（`storage/app` の engineers）の片付け（手元・公開版とも。未確認）。
 
 - **2026-10-19（FOCUS）秘密保持契約書を追加**：デスクトップの契約書(空欄のひな形)を、PDF は [81_契約書類](81_契約書類)、原稿とログは [32_契約書類の検討](32_契約書類の検討) に格納(元ファイルは削除済み)。契約書類は今後、変更のたびに日付・番号のログを残し、最新を CURRENT.md に書く運用(tezzo 指示)。tezzo の返事で、**この契約は PARK 事務局と SES の間**(リベートなど運営側の情報を知っても異議を述べない、という趣旨)と判明。原稿は「相互・運営は当事者でない」形なので書き直す。期間は仮3年。[位置づけ](32_契約書類の検討/2026-10-19-03-秘密保持契約書の位置づけ.md)。書き直し案を作り、Word を [81_契約書類](81_契約書類/2026-10-19-02-秘密保持契約書.docx) に 02 として置いた([案](32_契約書類の検討/2026-10-19-04-秘密保持契約書（書き直し案）.md)、[メモ](32_契約書類の検討/2026-10-19-05-秘密保持契約書の書き直し案.md))。次：tezzo が確認し、詰める。
 
@@ -100,7 +98,7 @@ Ministry of Business（40 帯）。2026-10-14 に `40_Business-Planning` の会�
 
 ## 返事待ち（tezzo が決めること）
 
-- なし
+- **A** 公開版のベルの「8」：見本データ時代の通知が残っていないか。tezzo がベルを開いて、中身を見せてもらう。見本の通知なら消してよいか（公開版の DB 操作になるので、了承が要る）。
 
 ## 検討中（ToDo メモ。返事待ちではない）
 
