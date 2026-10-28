@@ -148,7 +148,8 @@ Ministry of Business（40 帯）。2026-10-14 に `40_Business-Planning` の会�
 
 ## 次にやること
 
-- （2026-10-28）WIZ の web タブ：20_Desktop の席（JOE）が作った。41 の画面の右側が「会話」「md」「web」になり、web で公開版（https://www.jona.jp/park/）が WIZ の中に出る。試験用の窓では表示を確かめた（PARK のトップが出た）。tezzo の WIZ では未確認で、**WIZ の再起動（⟳）が要る**。tezzo が ⟳ のあと、PARK の画面の「web」を押して確かめる。ログインの Cookie は WIZ を閉じても残るが、PARK のセッションは 2 時間（`SESSION_LIFETIME=120`）で切れ、PARK に「ログインしたままにする」が無いので、2 時間触らないとログインし直しになる。長く保つなら PARK 側で決める（下の「検討中」）。web タブの赤い字にするかは tezzo が見て決める（20_Desktop の返事待ち）。
+- （2026-10-28）WIZ の web タブを4つに：20_Desktop の席（JOE）が作った。41 の画面の右側が「会話」「md」「web(管理)」「web(SES)」「web(Chr)」「web(Eg)」の並びになり、どれも公開版（https://www.jona.jp/park/）を出す。Cookie はタブごとに分けた（管理 `persist:web`・SES `persist:web-ses`・Chr `persist:web-chr`・Eg `persist:web-eg`）ので、4つを別々のアカウントで同時にログインしたままにできる。今の web のログインは web(管理) に引き継ぐ。試験用の窓で、4つの並び・どれでも PARK のトップが出ること・web(管理) の Cookie がほかの3つに入らないことを確かめた（スクリーンショットあり）。tezzo の WIZ では未確認で、**⟳ が要る**。tezzo が ⟳ のあと、PARK の画面で4つのタブを押し、それぞれの立場のアカウントでログインして確かめる。記録は 20_Desktop の `50_Processes/2026-10-28-03-webタブを4つに.md`。
+- （2026-10-28、前の作業）WIZ の web タブ：20_Desktop の席（JOE）が作った。41 の画面の右側が「会話」「md」「web」になり、web で公開版（https://www.jona.jp/park/）が WIZ の中に出る。試験用の窓では表示を確かめた（PARK のトップが出た）。tezzo の WIZ では未確認で、**WIZ の再起動（⟳）が要る**。tezzo が ⟳ のあと、PARK の画面の「web」を押して確かめる。ログインの Cookie は WIZ を閉じても残るが、PARK のセッションは 2 時間（`SESSION_LIFETIME=120`）で切れ、PARK に「ログインしたままにする」が無いので、2 時間触らないとログインし直しになる。長く保つなら PARK 側で決める（下の「検討中」）。web タブの赤い字にするかは tezzo が見て決める（20_Desktop の返事待ち）。
 
 - （2026-10-22 朝の点検）「AI：最後に取りに来た」が公開版で「まだ」のまま。つなぎ役は動いているので、記録の付き方を開発チームで確かめる。
 - tezzo が公開版の4つの一覧の停止・退会ボタン（ダイアログ・並び）を確かめる。
