@@ -3,6 +3,11 @@
 PARK プロジェクト（41_Park-Project）で何をやったかの記録（作業履歴）。新しいものを上に足す。
 今の状態は各フォルダの `CURRENT.md`、次にやること・返事待ちは [92_FromJoe](../92_FromJoe/CURRENT.md)、全体の概要は [概要](../00_Policies/概要.md)。
 
+## 2026-10-28
+
+- WIZ の web タブを4つ（web(管理)・web(SES)・web(Chr)・web(Eg)。Chr は SES の代表者以外の社員）にした。20_Desktop の席（JOE）に依頼して作ってもらい、tezzo が外見を確認。Cookie はタブごとに分かれる。
+- tezzo の指示で、公開版を tezzo の管理者1人だけ残して 0 に戻した（GENESIS から。tezzo が Xserver の phpMyAdmin で、安全装置付きの SQL をインポートして実行）。
+
 ## 2026-10-21
 
 - 管理者・SES・エンジニアの4つの一覧に停止・退会ボタンを付けた（tezzo の指示。park `7120f8e`、テスト387件、公開版に反映・migrate なし）。管理者の停止・再開・退会と SES の再開を新設。詳細は [92_FromJoe](../92_FromJoe/CURRENT.md)。
