@@ -1,4 +1,4 @@
-# 2026-10-29 ジョーから次の作業へ（Park-Project）
+# 2026-10-30 ジョーから次の作業へ（Park-Project）
 
 > 次に作業を始めるとき、まずこのファイルを読む。全体の引き継ぎは Desktop の `92_FromJoe/CURRENT.md` にある（Desktop は全体の IF）。
 
@@ -106,7 +106,7 @@ Ministry of Business（40 帯）。2026-10-14 に `40_Business-Planning` の会�
 
 ## 返事待ち（tezzo が決めること）
 
-- なし
+- A（2026-10-30 GENESIS・Leo）公開版を tezzo の管理者1人だけ残して 0 に戻す（2026-10-29 TEZZO 指示「1はa」。2026-10-30 に「まだできていない」と催促）。GENESIS にはサーバーの鍵が無く、Leo からは公開版を消せない。SQL は OS デスクトップの「PARK-0に戻す」（2026-10-29 22:00 版の 2_消す.sql。残す管理者がいないと何も消さない安全装置付き）。TEZZO さんが Xserver の phpMyAdmin で 1_見るだけ.sql → 2_消す.sql の順にインポートして実行し、結果（users が 1）を Leo に伝える。または FOCUS の Leo が SSH で行う。99_Data にある同じフォルダの写しは、公開リポジトリなので commit していない。
 
 ## 検討中（ToDo メモ。返事待ちではない）
 
