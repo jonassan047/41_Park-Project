@@ -3,6 +3,10 @@
 PARK プロジェクト（41_Park-Project）で何をやったかの記録（作業履歴）。新しいものを上に足す。
 今の状態は各フォルダの `CURRENT.md`、次にやること・返事待ちは [92_FromJoe](../92_FromJoe/CURRENT.md)、全体の概要は [概要](../00_Policies/概要.md)。
 
+## 2026-10-30
+
+- テスト用のダミーデータを入れるコマンド `park:seed-dummy` を開発チームで作った（TEZZO の指示。park `a867182`、テスト401件合格、公開版には未反映）。SES・担当者・エンジニアを `@park.example` で状態を混ぜて作り、`park:purge-samples` で消せる。公開版への反映と実行は FOCUS で。詳細は [92_FromJoe](../92_FromJoe/CURRENT.md)。
+
 ## 2026-10-28
 
 - WIZ の web タブを4つ（web(管理)・web(SES)・web(Chr)・web(Eg)。Chr は SES の代表者以外の社員）にした。20_Desktop の席（JOE）に依頼して作ってもらい、tezzo が外見を確認。Cookie はタブごとに分かれる。
