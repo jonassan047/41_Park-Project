@@ -176,7 +176,7 @@ Ministry of Business（40 帯）。2026-10-14 に `40_Business-Planning` の会�
 
 - **（2026-10-31 GENESIS・Leo）公開版の users は、残す管理者のほかに 2 人**（SES 1・エンジニア 1・メール 4）。TEZZO さんがテスト用と確認し、通しテストに使うために残すと決めた。2_消す.sql は流さない。
 
-- **（2026-10-30）ダミーデータを公開版に入れる（FOCUS で）**：FOCUS の WIZ で 41_Park-Project の JOE ボタンから Leo の席を開き、「92_FromJoe を読んで、ダミーデータの続きをして」と頼む。Leo は ① park を pull し `bash .claude/scripts/park-deploy.sh` で公開版に反映（常時了承の範囲）→ ② 公開版で `php artisan park:seed-dummy`（`--yes` なし。予定の件数を見せる）→ ③ 了承（TEZZO さんまたはワイフさん。片付いた返事待ち B）をもらってから `--yes` で入れる。Leo の操作が自動の安全チェックで止まったら、TEZZO さん（またはワイフさん）が Git Bash で流すコマンドを用意する。返事待ち A（0 に戻す）が済んでから入れるのが順番。消すときは `php artisan park:purge-samples`（まず `--yes` なしで件数を見る）。
+- **（2026-10-30）ダミーデータを公開版に入れる（FOCUS で）**：FOCUS の WIZ で 41_Park-Project の JOE ボタンから Leo の席を開き、「92_FromJoe を読んで、ダミーデータの続きをして」と頼む。Leo は ① park を pull し `bash .claude/scripts/park-deploy.sh` で公開版に反映（常時了承の範囲）→ ② 公開版で `php artisan park:seed-dummy`（`--yes` なし。予定の件数を見せる）→ ③ 了承（TEZZO さんまたはワイフさん。片付いた返事待ち B）をもらってから `--yes` で入れる。Leo の操作が自動の安全チェックで止まったら、TEZZO さん（またはワイフさん）が Git Bash で流すコマンドを用意する。消すときは `php artisan park:purge-samples`（まず `--yes` なしで件数を見る）。
 
 - **（2026-10-29 GENESIS・Leo、JOE から回された件）TEZZO さんが通しテストを行う**（手順は [40_動作確認/40_通しテスト/手順書.md](40_動作確認/40_通しテスト/手順書.md)。記録は1回1ファイル `YYYY-MM-DD-NN-テスト0001.md`、一覧は [40_通しテスト/CURRENT.md](40_動作確認/40_通しテスト/CURRENT.md)。TEZZO さんが ○／× と起きたことを Leo に伝え、Leo が書く）。2026-10-29 のビジョンで TEZZO さんが「最初は友人程度の小さなサークルから。まず SES の立場で小さな成功を1つ」と決め、官房長官 JOE（01_Vision の席）から Leo に準備が回された。公開版で、WIZ の web(管理)・web(SES)・web(Eg) を1人で演じ、管理者で SES を登録 → SES 担当者の初回ログイン → エンジニアの登録・初回ログイン・スキル登録 → 案件メールの取り込み → 案内 → 「応募したい」→ 書類（Excel）と「書類を返した（応募した）」まで（24手順）。架空の案件メールの見本・片付け方も同じ md に。アカウントは TEZZO さんが画面から作る（GENESIS にはサーバーの鍵が無い。Leo はアカウント作成・メール送信・サーバー接続をしていない）。未確認：WIZ のタブの中での Excel のダウンロード。
 
