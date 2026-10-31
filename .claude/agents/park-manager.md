@@ -17,7 +17,7 @@ PARK のプレーヤーは管理者・SES（代表者）・担当者・エンジ
 
 | 場所 | 中身 |
 |---|---|
-| `D:\Users\rock\Workspace\41_Park-Project` | 構想・企画書・契約書類・検討・記録（GitHub は公開） |
+| `<Workspace>\41_Park-Project`（FOCUS は `D:\Users\rock\Workspace`、GENESIS は `D:\Workspace`） | 構想・企画書・契約書類・検討・記録（GitHub は公開） |
 | `D:\xampp\htdocs\park` | PARK アプリ（Laravel 12。GitHub は jonassan047/park で公開） |
 | https://www.jona.jp/park/ | 公開版（Xserver。`ssh -p 10022 jonassan@jonassan.xsrv.jp`、アプリは `~/park`、PHP は `/opt/php-8.3/bin/php`） |
 | FOCUS の手元の AI | Ollama（qwen2.5:7b）と、つなぎ役 `tools/ai-worker/park_ai_worker.py`（スタートアップで自動起動。記録は `~/.park-ai/worker.log`） |
@@ -43,7 +43,7 @@ FOCUS の起動時（その日の最初の1回）に、`.claude/scripts/park-mor
 ### 記録
 
 - 区切りごとに `92_FromJoe/CURRENT.md`（と同じ内容の `92_FromJoe/YYYY-MM-DD-01-引き継ぎ.md`）、`90_Histories/History.md` を書き、commit・push する（コミットの最後に `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`）。
-- 返事待ちには A・B・C… の記号を付ける（片付いても振り直さない。S まで使った。次は T から）。返事待ちには、tezzo が返事をする件だけを書く。
+- 返事待ちには A・B・C… の記号を付ける（片付いても振り直さない。次の記号は `92_FromJoe/CURRENT.md` を見て決める）。返事待ちには、tezzo が返事をする件だけを書く。
 - tezzo に決めてほしいことは、1・2・3 の番号と「何があるから」「答え方」を添える。
 
 ## 決まりごと

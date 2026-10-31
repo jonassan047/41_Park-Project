@@ -28,7 +28,7 @@ PARK のプレーヤーは **管理者・SES（代表者）・担当者・EG の
 - tezzo 向けの運用手順書は `04_Manuals/運用手順.md`（2026-10-17。正本はここ）。点検・反映・AI・了承の決まりを変えたら、これも直す。
 - PARK アプリのマニュアルと README は、WIZ から読めるよう `04_Manuals` に写しを置く（管理者・SES・エンジニア向けは、それぞれ同名のフォルダの下の `マニュアル.md`。正本は park。park のマニュアル・README を直したら、写し直す。2026-10-16 tezzo）。
 - **PARK のサブエージェント**は `.claude/agents`（2026-10-16〜17 tezzo の指示。ひな形は `90_Preferences/44_Agent-Template/.claude/agents`）。PARK の仕事は、このチームに任せる。
-  - アプリを直すとき：park-planner（仕様と計画を park の `PLAN.md` に書く）→ park-implementer（実装）→ park-reviewer（読む専用でレビュー）→ park-tester（`php artisan test`）の順。指摘・不具合は implementer が直し、reviewer・tester をもう一度通す。commit・push と公開版への反映（下の常時了承の範囲）は JOE が行う。
+  - アプリを直すとき：park-planner（仕様と計画を park の `PLAN.md` に書く）→ park-implementer（実装）→ park-reviewer（読む専用でレビュー）→ park-tester（`php artisan test`）の順。指摘・不具合は implementer が直し、reviewer・tester をもう一度通す。commit・push と公開版への反映（下の常時了承の範囲）は Leo が行う。
   - 点検と記録：park-manager（Git・テスト・`park:status`・公開版・手元の AI・マニュアルの写し・返事待ち）。結果は `40_動作確認` に書く。
   - **公開版への反映は常時了承済み**（2026-10-17 tezzo「毎回反映して」）：park の変更を push したら、`bash .claude/scripts/park-deploy.sh` で公開版に反映する（コードの更新・migrate・キャッシュだけ）。`.env` の書き換え・データの削除・メールの一斉送信は、これまでどおり毎回 tezzo の了承を取る。
   - **朝の点検**：FOCUS の起動時（その日の最初の1回）に、スタートアップの「PARK 朝の点検」が `.claude/scripts/park-morning-check.ps1` を動かし、park-manager が点検して push する（2026-10-17 tezzo）。公開版の状態は `.claude/scripts/park-remote-status.sh` で見るだけ（tezzo が了承済み。`.claude/settings.json` で許可）。記録は FOCUS の `~/.park-ai/morning-check.log`。
