@@ -15,6 +15,17 @@ PARK のマッチング精度を上げるための調査の記録。調査用の
 - 「業務経験」のマスタを作るか。
 - 調査サイトの置き場所・名前。
 
+## 測定のやり方（GENESIS）
+
+- `C:\Users\rock\Documents\park-lab\`：`mails/01〜13.txt`（案件の本文）、`lab.php`（今の CaseParser と調査案を比べる。正解の行数は中の `$GOLD`）、`result-01.txt`（2026-11-12 の結果）。
+- GENESIS の park には `.env` が無いので、環境変数を付けて動かす（Git Bash）：
+
+```
+cd /d/xampp/htdocs/park && APP_KEY=base64:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA= DB_CONNECTION=mysql DB_HOST=127.0.0.1 DB_DATABASE=jonassan_park DB_USERNAME=root DB_PASSWORD= /d/xampp/php/php.exe C:/Users/rock/Documents/park-lab/lab.php
+```
+
+- メールは Gmail のラベル「03-阿部さん」から Gmail の道具（get_message）で読み、案件の部分だけを `mails/` に保存した。
+
 ## 次にやること
 
 - 件数を増やし、「どれにも当たらない」行に正解の分類を付けて、業界・業務経験の辞書でどこまで自動になるかを測る。
