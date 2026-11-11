@@ -3,6 +3,10 @@
 PARK プロジェクト（41_Park-Project）で何をやったかの記録（作業履歴）。新しいものを上に足す。
 今の状態は各フォルダの `CURRENT.md`、次にやること・返事待ちは [92_FromJoe](../92_FromJoe/CURRENT.md)、全体の概要は [概要](../00_Policies/概要.md)。
 
+## 2026-11-11（GENESIS・Leo）スキル登録をチェックボックス式に全面変更（v0.4.0）
+
+TEZZO さんの依頼（元：Desktop の `PARK\Skills.xlsx`）。項目を `resources/data/skill_form.json` にして画面を作り直した。年数は 1年未満／1年以上／3年以上／5年以上。「その他」は複数追加。旧スキル表は新しい表 `engineer_skill_checks` へ移行（旧表は残す）。計画（PLAN.md）→実装→レビュー→修正→テストの順に park のチームで進めた。park `5de8a0c`、公開版に反映済み（旧 80 人 → 新 80 人）。詳しくは [92_FromJoe](../92_FromJoe/CURRENT.md)。
+
 ## 2026-11-04（GENESIS・Leo）登録のシナリオを作る（管理者 → SES → エンジニア → スキル）
 
 TEZZO さんの依頼で、テスト用のメールは `@park.example` を使う前提を確かめた。結果：確認コードは公開版の `PARK_SKIP_2FA_DOMAIN=park.example` で省かれる。送られるはずのメール（招待・確認コード）は届かず、「メール」の画面（`mail_outbox`）に残るので、招待のリンクはそこから読む。受信箱では確かめられない。手順を `40_動作確認/40_通しテスト/登録のシナリオ.md`（版 1、20 手順）に書いた。アドレスは `test-ses1`・`test-eg1` など `test-` で始まるものに分けた。park のコードは変えていない。**未確認**：公開版のメールが今も「保存のみ」か、`PARK_SKIP_2FA_DOMAIN` が今も入っているか（TEZZO さんが手順 4・8 で確かめる）。
