@@ -7,6 +7,8 @@ ssh -o BatchMode=yes -o ConnectTimeout=15 -p 10022 jonassan@jonassan.xsrv.jp 'se
 git pull -q --ff-only
 /opt/php-8.3/bin/php /usr/bin/composer install --no-dev --optimize-autoloader -q
 /opt/php-8.3/bin/php artisan migrate --force
+# 技術マスタの辞書を DB に入れる（足す・名前を変える・確認済みにするだけで、行は消さない。2026-11-12 v0.5.0 から）
+/opt/php-8.3/bin/php artisan park:skills-sync
 /opt/php-8.3/bin/php artisan config:cache -q
 /opt/php-8.3/bin/php artisan view:cache -q
 git log --oneline -1'
