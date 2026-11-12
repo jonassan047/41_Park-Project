@@ -3,6 +3,10 @@
 PARK プロジェクト（41_Park-Project）で何をやったかの記録（作業履歴）。新しいものを上に足す。
 今の状態は各フォルダの `CURRENT.md`、次にやること・返事待ちは [92_FromJoe](../92_FromJoe/CURRENT.md)、全体の概要は [概要](../00_Policies/概要.md)。
 
+## 2026-11-12（GENESIS・Leo）v0.6.0：案件の必須・尚可の読み直しに手元の AI
+
+規則の読み方を v3 にし（`CaseParser::sections`・`ruleLines`・`finishSkills`）、AI の仕事の箱に `case_skills` を足した（`CaseAi`）。登録のときに AI が読み直し、本文と突き合わせて、条件がそろえば自動で入れ替え、そうでなければ案件の画面で選ぶ。worker は system・user の2通と温度 0 で送るようにした（古い worker でも動く）。実装（4 段階）→レビュー→修正→テスト（820 件中 818 件）を park のチームで進めた。park `7a53e73`、公開版に反映済み（migrate なし）。04_Manuals の写しと README を写し直した。FOCUS の worker の起動し直しと画面の確認が残り。
+
 ## 2026-11-12（GENESIS・Leo）手元の AI の測定と v0.6.0 の計画
 
 手元の AI（qwen2.5:7b）で 45 件の抜き出しを測った（ほぼ 100%、まだ見ていない 5 件で必須 94%・尚可 100%）。PARK に組み込む計画 v0.6.0 を park の PLAN.md に書いた（park `af634eb`）。実装は次の会話で。
