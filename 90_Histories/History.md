@@ -3,6 +3,10 @@
 PARK プロジェクト（41_Park-Project）で何をやったかの記録（作業履歴）。新しいものを上に足す。
 今の状態は各フォルダの `CURRENT.md`、次にやること・返事待ちは [92_FromJoe](../92_FromJoe/CURRENT.md)、全体の概要は [概要](../00_Policies/概要.md)。
 
+## 2026-11-16（Leo）受信の設定を入れた（IMAP のパスワード以外）
+
+TEZZO の了承で、公開版 `.env` に PARK_IMAP_HOST（sv5219.xserver.jp）・PORT・USER（park@jona.jp）・MAILBOX を追加し、Xserver の cron に park:mail-fetch を5分ごとで登録した。パスワードは TEZZO が書き込む。
+
 ## 2026-11-16（Leo）v0.12.0 を公開版に反映した
 
 TEZZO の了承（「反映OK」）で `park-deploy.sh` を実行。migrate は 2026_11_16_000001 のみ。公開版 v0.12.0（park `01f210e`）、受信の設定は「なし」のまま（IMAP 未設定）。
