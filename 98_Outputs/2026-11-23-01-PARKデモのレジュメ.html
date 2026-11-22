@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>PARK デモ レジュメ</title>
+<style>
+  @page { size: A4; margin: 14mm 14mm 12mm 14mm; }
+  * { box-sizing: border-box; }
+  body { font-family: "Yu Gothic", "Meiryo", sans-serif; color: #1f2d3d; font-size: 10.5pt; line-height: 1.55; margin: 0; }
+  .page { page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+  h1 { font-size: 20pt; color: #1d4e89; margin: 0 0 2mm; letter-spacing: .05em; }
+  h2 { font-size: 13pt; color: #fff; background: #3b78b8; padding: 1.5mm 4mm; border-radius: 2mm; margin: 0 0 3mm; }
+  h3 { font-size: 11pt; color: #1d4e89; margin: 0 0 1.5mm; }
+  .sub { color: #5a6b7d; font-size: 9.5pt; margin-bottom: 5mm; }
+  .head { border-bottom: 2px solid #3b78b8; padding-bottom: 3mm; margin-bottom: 5mm; display: flex; justify-content: space-between; align-items: flex-end; }
+  .date { font-size: 9.5pt; color: #5a6b7d; text-align: right; }
+  .box { background: #eef5fc; border: 1px solid #c5dbf0; border-radius: 2mm; padding: 3mm 4mm; margin-bottom: 4mm; }
+  .flow { display: flex; flex-wrap: wrap; gap: 2mm; margin: 2mm 0 4mm; }
+  .flow div { flex: 1 1 0; padding: 2mm 1mm; background: #fff; border: 1.5px solid #3b78b8; border-radius: 2mm; padding: 2mm; text-align: center; font-size: 9.5pt; position: relative; }
+  .flow div b { display: block; color: #1d4e89; font-size: 10.5pt; }
+  .flow div.key { background: #dceafa; }
+  table.roles { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
+  table.roles th, table.roles td { border: 1px solid #c5dbf0; padding: 1.5mm 2mm; text-align: left; vertical-align: top; }
+  table.roles th { background: #eef5fc; width: 32%; color: #1d4e89; }
+  .step { display: flex; gap: 4mm; margin-bottom: 5mm; page-break-inside: avoid; }
+  .step .body { flex: 1.15; }
+  .step .memo { flex: 1; border: 1px solid #b7c9dc; border-radius: 2mm; padding: 1.5mm 3mm;
+    background-image: linear-gradient(to bottom, transparent 27px, #d3dfeb 27px, #d3dfeb 28px); background-size: 100% 28px;
+    background-origin: content-box; background-clip: content-box; min-height: 78mm; }
+  .step .memo span { font-size: 8.5pt; color: #7a8a9b; background: #fff; }
+  .no { display: inline-block; background: #1d4e89; color: #fff; border-radius: 50%; width: 7mm; height: 7mm; line-height: 7mm; text-align: center; font-weight: bold; margin-right: 2mm; }
+  .title { font-size: 12pt; font-weight: bold; color: #1d4e89; margin-bottom: 2mm; }
+  .label { display: inline-block; font-size: 8.5pt; background: #3b78b8; color: #fff; border-radius: 1mm; padding: 0 1.5mm; margin-right: 1mm; }
+  .label.pt { background: #c0504d; }
+  ul { margin: 1mm 0 2mm; padding-left: 5mm; }
+  li { margin-bottom: .8mm; }
+  .yama { border: 2px solid #c0504d; border-radius: 2mm; padding: 2mm 3mm; background: #fdf3f2; }
+  .note { font-size: 8.5pt; color: #5a6b7d; }
+  .bigmemo { border: 1px solid #b7c9dc; border-radius: 2mm; height: 100mm; padding: 2mm 3mm;
+    background-image: linear-gradient(to bottom, transparent 27px, #d3dfeb 27px, #d3dfeb 28px); background-size: 100% 28px;
+    background-origin: content-box; background-clip: content-box; margin-bottom: 5mm; }
+  .check li { list-style: none; margin-left: -5mm; }
+  .check li::before { content: "□ "; color: #1d4e89; }
+  .foot { font-size: 8pt; color: #8a99a8; text-align: right; margin-top: 2mm; }
+</style>
+</head>
+<body>
+
+<!-- 1枚目：全体 -->
+<section class="page">
+  <div class="head">
+    <div>
+      <h1>PARK デモ　レジュメ</h1>
+      <div>SES 企業どうしがグループで案件を回し、エンジニアの成約率を上げる仕組み</div>
+    </div>
+    <div class="date">2026年11月<br>メモ用・お手元にどうぞ</div>
+  </div>
+
+  <div class="box">
+    <h3>今日お見せすること（一言で）</h3>
+    案件のメールが届いてから、<b>エンジニアへの案内 → エンジニアの返事 → 案件をくれた先への返信 → 合否の記録</b>までを、
+    PARK 1つで、記録を残しながら、短い手間で回せることを、実際の画面でお見せします。
+  </div>
+
+  <h2>デモの流れ（約20分）</h2>
+  <div class="flow">
+    <div><b>1</b>ログイン<br>&nbsp;</div>
+    <div class="key"><b>2</b>案件メール<br>取り込み</div>
+    <div><b>3</b>エンジニア<br>検索・案内</div>
+    <div><b>4</b>エンジニア<br>の返事</div>
+    <div class="key"><b>5</b>応募確定<br>先方へ返信</div>
+    <div><b>6</b>先方の<br>返事</div>
+    <div><b>7</b>合格の<br>登録</div>
+  </div>
+  <p class="note" style="margin-top:-2mm">色の濃い 2・5 が見どころです。各手順のページの右側はメモ欄です。</p>
+
+  <h2>登場する人（立場）</h2>
+  <table class="roles">
+    <tr><th>SES の担当者</th><td>デモで画面を操作する人。案件を登録し、エンジニアに案内し、先方へ返信し、合否を記録します。<br>（デモでは架空の会社「ヨシダ・エージェンシー」の担当者として操作します）</td></tr>
+    <tr><th>エンジニア</th><td>案内のメールを受け取り、メールかリンクの画面で返事をします。PARK へのログインは不要です。<br>（デモでは架空のエンジニア「近藤 あきら」さん）</td></tr>
+    <tr><th>プロバイダー<br>（案件をくれた先）</th><td>案件のメールを送ってくる上位の会社。PARK からの返信を受け取り、結果をメールで返します。<br>（デモでは架空の「デモ用プロバイダー株式会社」）</td></tr>
+    <tr><th>管理者</th><td>PARK 全体の運営（グループの会社の管理、全体の見守り）。今日は主に画面には出しません。</td></tr>
+  </table>
+
+  <div class="box" style="margin-top:4mm">
+    <h3>あらかじめお伝えしておくこと</h3>
+    <ul>
+      <li>画面に出る会社・人・案件は、すべて<b>デモ用の架空のデータ</b>です。</li>
+      <li>メールの受け取りは約5分ごとです。メールを送ったあと、画面に出るまで少し待つ時間があります。</li>
+      <li>先方へのメールは<b>自動では送りません</b>。下書きを人が確かめて［送信］を押したときだけ送ります。</li>
+    </ul>
+  </div>
+  <div class="foot">1 / 5</div>
+</section>
+
+<!-- 2枚目：1・2 -->
+<section class="page">
+  <h2>手順 1〜2　ログインと、案件メールの取り込み</h2>
+
+  <div class="step">
+    <div class="body">
+      <div class="title"><span class="no">1</span>ログイン</div>
+      <ul>
+        <li>トップページ（「SES 企業のみなさまと、エンジニアが、同じ木の下で。」）から［ログイン］。</li>
+        <li>メールアドレスとパスワードのあと、メールに届く<b>6桁の確認コード</b>を入れます（なりすまし防止）。</li>
+        <li>ダッシュボードに「<b>今やること</b>」が並びます（新しい案件の案内、本人確認がまだのエンジニアなど）。</li>
+        <li>下に、所属エンジニア・稼働中・選考中・成約・今月の成功報酬の数字。</li>
+      </ul>
+    </div>
+    <div class="memo"><span>メモ</span></div>
+  </div>
+
+  <div class="step">
+    <div class="body">
+      <div class="title"><span class="no">2</span>案件メールの取り込み <span class="label pt">見どころ</span></div>
+      <ul>
+        <li>① 先方から届いた<b>ふだんの案件メール</b>（案件名・作業内容・必須／尚可スキル・単価・場所・開始時期など）。</li>
+        <li>② メニュー「案件」→［案件を登録］。本文を<b>貼り付けて［取り込む］</b>だけ。</li>
+        <li>③ 案件名・金額・<b>必須スキル・尚可スキル</b>などが自動で入ります。<br>
+            <span class="note">この PC の中で処理し、外部のサービスには送りません。</span></li>
+        <li>④ プロバイダー（案件をくれた先）を選んで登録すると、案件の画面になります。<br>
+            左に<b>メール本文そのまま</b>、右に<b>検索のキーワード</b>（必須・尚可・エンジニアに確認する項目）。</li>
+      </ul>
+      <div class="note">ポイント：これまで頭の中で読んでいた案件メールが、そのまま「探せる形」になります。</div>
+    </div>
+    <div class="memo"><span>メモ</span></div>
+  </div>
+  <div class="foot">2 / 5</div>
+</section>
+
+<!-- 3枚目：3・4 -->
+<section class="page">
+  <h2>手順 3〜4　エンジニアへの案内と、エンジニアの返事</h2>
+
+  <div class="step">
+    <div class="body">
+      <div class="title"><span class="no">3</span>エンジニアを探して案内する</div>
+      <ul>
+        <li>案件の画面の右「検索のキーワード」。メールから拾った言葉に<b>はじめからチェック</b>。外す・足すだけ（案件そのものは変わりません）。</li>
+        <li>「<b>エンジニアに確認する項目</b>」を足すと、案内メールに「必ずご返信ください」として入り、答え漏れを防ぎます。</li>
+        <li>［エンジニアを検索］→ 必須の <b>3/4 以上</b>に当たる人が、点数・マッチした点・しなかった点つきで並びます。</li>
+        <li><b>自社の人 → グループのほかの会社の人</b>の順。ほかの会社の人は<b>イニシャルと会社名だけ</b>で出ます。</li>
+        <li>名前で探して足す・登録のない人のメールアドレスを足すこともできます。</li>
+        <li>［エンジニアへメールを送信］→ <b>1人ずつ別のメール</b>で届きます。返信先もメールごとに専用なので、取り違えません。</li>
+      </ul>
+    </div>
+    <div class="memo"><span>メモ</span></div>
+  </div>
+
+  <div class="step">
+    <div class="body">
+      <div class="title"><span class="no">4</span>エンジニアの返事</div>
+      <ul>
+        <li>エンジニアに届くメール：案件・単価・場所・必須スキル、「<b>あなたに合う点</b>」（経験年数つき）。</li>
+        <li>返事は<b>メールに返信</b>するか、メールの中の<b>［応募したい］［質問がある］［見送る］</b>のリンクを押すだけ。</li>
+        <li>リンクの画面で「応募したい」を選び、ひとことを書いて送ると「ご返事を受け付けました」。</li>
+        <li>担当者の画面の「案内済メール」で、その人の返事が<b>「応募あり」</b>に変わります（ベルのお知らせも出ます）。</li>
+        <li>見送りの理由も残るので、次の案内に活かせます。</li>
+      </ul>
+    </div>
+    <div class="memo"><span>メモ</span></div>
+  </div>
+  <div class="foot">3 / 5</div>
+</section>
+
+<!-- 4枚目：5・6・7 -->
+<section class="page">
+  <h2>手順 5〜7　先方への返信と、合否の登録</h2>
+
+  <div class="step">
+    <div class="body">
+      <div class="title"><span class="no">5</span>応募を確定させ、先方へ返信する <span class="label pt">見どころ</span></div>
+      <ul>
+        <li>選考の画面（応募の内容・経過）で［<b>応募を確定させる</b>］。</li>
+        <li>先方への返信が<b>自動で下書き</b>になります：宛名、エンジニアは<b>イニシャル（例：K.A）</b>、本人の意向、本人のコメント。</li>
+        <li><b>会社名・氏名・連絡先は伝わりません</b>（残っていれば赤い警告が出ます）。</li>
+        <li>人が読んで、直して、［送信］→ 確認で［OK］。送るまでは次の手順に進みません。</li>
+      </ul>
+      <div class="yama">ここまで自動。人は「確かめて、押すだけ」。誰がいつ何を送ったかが残ります。</div>
+    </div>
+    <div class="memo"><span>メモ</span></div>
+  </div>
+
+  <div class="step">
+    <div class="body">
+      <div class="title"><span class="no">6</span>先方の返事</div>
+      <ul>
+        <li>先方には件名「【ご返事】（案件名）［No.…］」のメールが届きます。</li>
+        <li>先方は、そのメールに<b>ふつうに返信</b>するだけ（例：「合格とします。」）。</li>
+        <li>PARK が受け取り、<b>案件とエンジニアに紐付けて</b>担当者に知らせます。</li>
+      </ul>
+    </div>
+    <div class="memo" style="min-height:52mm"><span>メモ</span></div>
+  </div>
+
+  <div class="step">
+    <div class="body">
+      <div class="title"><span class="no">7</span>合格の登録</div>
+      <ul>
+        <li>「先方の結果」で［合格］を選んで［登録］→ <b>「合格」が大きく表示</b>され、日時が残ります。</li>
+        <li>エンジニア本人にお知らせが届きます（メモは届きません）。</li>
+        <li>結果がたまるので、次の案件の提案に活かせます。</li>
+      </ul>
+    </div>
+    <div class="memo" style="min-height:52mm"><span>メモ</span></div>
+  </div>
+  <div class="foot">4 / 5</div>
+</section>
+
+<!-- 5枚目：全体メモ -->
+<section class="page">
+  <h2>ご質問・お気づきの点</h2>
+  <div class="bigmemo"></div>
+
+  <h2>あとで確かめたいこと（チェック用）</h2>
+  <ul class="check">
+    <li>案件メールの取り込み（手順 2）は、ふだんの案件メールでも使えそうか</li>
+    <li>エンジニアの探し方（手順 3）・確認する項目の入れ方は、現場の感覚に合うか</li>
+    <li>先方への返信の下書き（手順 5）の文面・伏せ方で、困ることはないか</li>
+    <li>グループの会社どうしでエンジニアを紹介し合うときに、気になること</li>
+    <li>その他：</li>
+  </ul>
+  <div class="bigmemo" style="height:62mm"></div>
+
+  <p class="note">今の版でできないこと：先方の返事の中身（合否）を自動では読み取りません（担当者が読んで登録します）。メールの受け取りは約5分ごとです。</p>
+  <div class="foot">5 / 5</div>
+</section>
+
+</body>
+</html>
