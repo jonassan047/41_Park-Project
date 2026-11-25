@@ -3,6 +3,10 @@
 PARK プロジェクト（41_Park-Project）で何をやったかの記録（作業履歴）。新しいものを上に足す。
 今の状態は各フォルダの `CURRENT.md`、次にやること・返事待ちは [92_FromJoe](../92_FromJoe/CURRENT.md)、全体の概要は [概要](../00_Policies/概要.md)。
 
+## 2026-11-25（Leo）名前と ID をセットにする（全画面の見直し）
+
+TEZZO「ID の記載が何度言っても徹底されていない。SES 詳細のタイトルは AAA だけでなく『SE-000011　AAA』。エンジニアも同じ。すべてのこういうケースを抜け・漏れなく ID とセットにする。全画面で再確認」。全 Blade のタイトルと、名前だけを出している表・項目を洗い出して直した。`id_title($code, $name)`（`app/helpers.php`）を足し、詳細・編集画面のタイトル約40画面を「ID　名前」に（選考・面談・契約は応募／契約 ID＋案件 ID）。管理者・SES・EG のダッシュボード、管理者の「エンジニアとのやり取り」、エンジニア詳細の「所属 SES」、選考・担当者詳細の「SES」にも ID。ほかの SES のエンジニアなど ID を見せない決まりの所は今のまま。テスト `IdTitleTest` を追加。Feature 全件合格（ZipArchive 無しの1件を除く）。park `94855e4`、公開版へ反映済み。再発を防ぐため、park-planner・implementer・reviewer の決まりごとに「名前を出すところは必ず ID とセット」を書いた。**画面は未確認**（GENESIS に park の `.env` が無く手元で開けないため。テストで h1 を確かめた）。
+
 ## 2026-11-25（Leo）入力の検査の文を日本語に（v0.19.1 に追加）
 
 TEZZO「パスワード＋再確認で『The パスワード field confirmation does not match.』が出る。すべて日本語の適切な文に修正する」。原因は `lang` フォルダが無く、ロケールが `en` だったため、Laravel 標準の英語の文が出ていたこと。`lang/ja/validation.php`・`auth.php`・`passwords.php`・`pagination.php` を作り、`config/app.php` のロケールを `ja`（予備も `ja`）に固定（公開版の `.env` に `APP_LOCALE=en` があっても効くように）。項目名を渡していない画面向けに、よく使う項目の呼び方（メールアドレス・名前など）も入れた。例：「パスワードと確認用の入力が一致しません。」。テスト `V0191JapaneseMessagesTest`（英語版の全キーが日本語版にあること、文面）を追加。Feature 全件合格（ZipArchive 無しの1件を除く）。公開版へ反映済み。**画面は未確認**。
