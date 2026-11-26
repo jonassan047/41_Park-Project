@@ -1,16 +1,17 @@
 const P = require('pptxgenjs');
 const meta = require('./meta.json');
-const OUT = 'D:/Workspace/41_Park-Project/98_Outputs/2026-11-26-01-PARKクイックスタート-SES.pptx';
+const OUT = 'D:/Workspace/41_Park-Project/98_Outputs/SES用クイックスタート/2026-11-26-02-PARKクイックスタート-SES.pptx';
 const p = new P();
 p.defineLayout({ name: 'W', width: 13.333, height: 7.5 }); p.layout = 'W';
 p.theme = { headFontFace: 'Yu Gothic', bodyFontFace: 'Yu Gothic' };
-const BLUE = '1F4E79', LIGHT = 'DEEBF7', MID = '2E75B6', RED = 'D62828', INK = '222222', F = 'Yu Gothic';
+const BLUE = '214E37', LIGHT = 'E1F0E8', MID = '3D9465', RED = 'D62828', INK = '222222', F = 'Yu Gothic';
 
 // 表紙
-let s = p.addSlide(); s.background = { color: 'F3F8FC' };
+let s = p.addSlide(); s.background = { color: 'F2F8F5' };
+s.addImage({ path: 'D:/xampp/htdocs/park/public/img/sprig.jpg', x: 9.6, y: 1.35, w: 2.7, h: 2.7, rounding: true });
 s.addShape('rect', { x: 0, y: 0, w: 0.35, h: 7.5, fill: { color: MID } });
 s.addText('PARK', { x: 1.1, y: 1.5, w: 8, h: 1.0, fontSize: 54, bold: true, color: BLUE, fontFace: F, margin: 0 });
-s.addText('クイックスタート', { x: 1.1, y: 2.55, w: 11, h: 1.0, fontSize: 44, bold: true, color: BLUE, fontFace: F, margin: 0 });
+s.addText('クイックスタート', { x: 1.1, y: 2.55, w: 8, h: 1.0, fontSize: 44, bold: true, color: BLUE, fontFace: F, margin: 0 });
 s.addText('SES 企業さま向け　―　登録から案件の合否の登録まで', { x: 1.1, y: 3.8, w: 11, h: 0.6, fontSize: 22, color: INK, fontFace: F, margin: 0 });
 s.addShape('line', { x: 1.1, y: 4.7, w: 11, h: 0, line: { color: MID, width: 1.5 } });
 s.addText('2026年11月26日版\n画面の会社名・氏名・メールアドレスは、説明用の見本です。', { x: 1.1, y: 4.95, w: 11, h: 0.9, fontSize: 14, color: '555555', fontFace: F, margin: 0, lineSpacingMultiple: 1.3 });
@@ -52,7 +53,8 @@ slide('S1-1', '招待メールのリンクを開く', 's1-mail', ['件名「仮�
 slide('S1-2', '本登録：会社名と氏名を確かめる', 's1-form1', ['企業正式名称を確かめます', 'ご自身の氏名を確かめます'], [0, 1], '違っていたら、この画面で直せます。ふりがなは任意です。');
 slide('S1-3', '本登録：入力して「本登録する」', 's1-form2', ['会社の電話番号', '郵便番号', '住所', '守秘義務への同意にチェック', 'パスワード（8文字以上）を2回入れます', '「本登録する」を押します'], [0, 1, 2, 3, 4, 5]);
 slide('S1-4', '確認コードを入れる', 's1-code', ['メールで届いた6桁の確認コードを入れます（件名「確認コード ○○○○○○」）', '「ログイン」を押します'], [0, 1], 'コードは10分間有効です。入れるまで、本登録は保存されません。届かないときは、迷惑メールを確かめてから「コードを送り直す」。');
-slide('S1-5', '本登録の完了', 's1-dash', ['「本登録が完了しました」と出て、ダッシュボードが開きます。次は上の「エンジニア一覧」を押します'], [0], '2回目からは、メールアドレスとパスワードを入れ、届いた確認コードでログインします。');
+slide('S1-5', '本登録の完了', 's1-dash', ['「本登録が完了しました」と出て、ダッシュボードが開きます。次は上の「エンジニア一覧」を押します'], [0], '確認コードを聞かれるのは、この初回だけです。');
+slide('S1-6', '2回目からのログイン', 's1-start', ['メールアドレスとパスワードでログインすると「ここからは SES の作業です」が出ます。「作業を始める」を押します'], [0], '中ほどの①〜⑤は仕事の流れです。濃い札が SES の担当です。');
 slide('S2-1', 'エンジニアの登録画面を開く', 's2-list', ['上のメニューの「エンジニア一覧」を開きます', '「エンジニアを登録」を押します'], [0, 1]);
 slide('S2-2', '姓・名・メールを入れて仮登録', 's2-form', ['氏名（姓・名）', 'ご本人のメールアドレス', '推薦文があれば貼り付けます（任意）', '「仮登録してメールを送る」を押します'], [0, 1, 2, 3], '推薦文を貼ると、スキルが自動で登録されます。推薦文は、ご本人と他社には見えません。');
 slide('S2-3', '仮登録できたことを確かめる', 's2-done', ['案内を送ったことと、登録されたスキルの件数が出ます'], [0], 'ここの「状態：待機中」は、本登録が済んだという意味ではありません。次の一覧の「アカウント」で確かめます。');

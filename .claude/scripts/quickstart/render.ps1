@@ -1,6 +1,6 @@
 ﻿$app = New-Object -ComObject PowerPoint.Application
 $had = $app.Presentations.Count
-$p = $app.Presentations.Open('D:\Workspace\41_Park-Project\98_Outputs\2026-11-26-01-PARKクイックスタート-SES.pptx', -1, 0, 0)
+$p = $app.Presentations.Open('D:\Workspace\41_Park-Project\98_Outputs\SES用クイックスタート/2026-11-26-02-PARKクイックスタート-SES.pptx', -1, 0, 0)
 $p.Export("$env:TEMP\park-qs\render", 'PNG', 1600, 900)
 $p.Slides.Count
 $p.Close()

@@ -4,6 +4,6 @@
 
 1. このフォルダの中身を `/tmp/park-qs` にコピーし、そこで `npm i playwright-core pptxgenjs`
 2. 別の窓で `bash serve.sh`（http://127.0.0.1:8123）
-3. `bash recap.sh`（撮影）→ `node build.js`（98_Outputs に pptx）→ `render.ps1`（PowerPoint で画像にして確かめる）
+3. `bash recap.sh`（撮影）→ `node build.js`（`98_Outputs/SES用クイックスタート` に pptx。版を上げるときは build.js と render.ps1 の番号を直す）→ `render.ps1`（PowerPoint で画像にして確かめる）
 
 PHP は `D:/xampp/php`、park は `D:/xampp/htdocs/park` の前提（GENESIS）。

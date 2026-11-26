@@ -73,6 +73,15 @@ const SES = 'sato@example.com', PW = 'Sample-pass1';
   await submit(s, 'ログイン');
   await shot(s, 's1-dash', [s.locator('a[href$="/ses/engineers"]').first()], 760);
 
+  // 2回目のログイン（確認コードは聞かれない）で出る、区切りのページ
+  await submit(s, 'ログアウト');
+  await s.goto(B + '/login');
+  await s.fill('[name=email]', SES); await s.fill('[name=password]', PW);
+  await Promise.all([s.waitForURL('**/start/ses'), s.getByRole('button', { name: 'ログイン', exact: true }).click()]);
+  const go = s.getByRole('link', { name: /作業を始める/ }).or(s.getByRole('button', { name: /作業を始める/ })).first();
+  await shot(s, 's1-start', [go]);
+  await go.click(); await s.waitForLoadState('load');
+
   await s.goto(B + '/ses/engineers');
   const add = s.getByRole('link', { name: 'エンジニアを登録' }).first();
   await shot(s, 's2-list', [s.locator('a[href$="/ses/engineers"]').first(), add], 620);
