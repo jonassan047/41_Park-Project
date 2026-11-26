@@ -14,3 +14,10 @@ PHP は `D:/xampp/php`、park は `D:/xampp/htdocs/park` の前提（GENESIS）�
 
 - `login.js`：ログインの画面を撮る（serve.sh が動いている間に。meta.json に足す）
 - `build3.js`：shots/ を切り抜いて（cuts/）4ページの pptx を組む。切り抜きの範囲と赤枠は `crops` に書く（'push' は「押す」の札つき）
+
+## 6ページ版（2026-11-27-04〜）
+
+-03 の前に「トップページ」「SES の作業（仕事の流れ）」の2ページを足した（TEZZO の指示）。
+
+- `top.js`：はじめの設定（管理者）を済ませてから、ログインなしでトップ（`/`）と `/start/ses` を撮る（serve.sh が動いている間に。meta.json に足す）
+- `build4.js`：6ページの pptx を組む。スクロールの矢印は「同じ画面」、押す矢印は「次の画面」と書き分ける
