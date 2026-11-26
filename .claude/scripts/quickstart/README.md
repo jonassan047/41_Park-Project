@@ -7,3 +7,10 @@
 3. `bash recap.sh`（撮影）→ `node build.js`（`98_Outputs/SES用クイックスタート` に pptx。版を上げるときは build.js と render.ps1 の番号を直す）→ `render.ps1`（PowerPoint で画像にして確かめる）
 
 PHP は `D:/xampp/php`、park は `D:/xampp/htdocs/park` の前提（GENESIS）。
+
+## 4ページ版（2026-11-26-03〜）
+
+画面と画面を矢印でつなぎ、「どこを押すと次の画面が出るか」を見せる形（TEZZO の指示）。
+
+- `login.js`：ログインの画面を撮る（serve.sh が動いている間に。meta.json に足す）
+- `build3.js`：shots/ を切り抜いて（cuts/）4ページの pptx を組む。切り抜きの範囲と赤枠は `crops` に書く（'push' は「押す」の札つき）
