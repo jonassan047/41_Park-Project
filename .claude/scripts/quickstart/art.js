@@ -33,13 +33,13 @@ const b64 = f => 'data:image/jpeg;base64,' + fs.readFileSync(f).toString('base64
    background:radial-gradient(circle at 88% 8%,rgba(190,235,140,.45),transparent 42%),radial-gradient(circle at 4% 100%,rgba(110,200,140,.35),transparent 45%),linear-gradient(135deg,#0b2b1c,#175236 52%,#2f8458);color:#fff;
    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
   .photo{position:absolute;border-radius:28px;border:6px solid #fff;box-shadow:0 24px 50px rgba(0,0,0,.4);background:url(${b64('hero.jpg')}) center/cover;opacity:.22}
-  .sp{width:190px;height:190px;border-radius:50%;background:url(${b64('sprig.jpg')}) center/cover;box-shadow:0 0 0 7px #fff,0 0 0 18px rgba(190,235,140,.45),0 14px 34px rgba(0,0,0,.35);margin-bottom:46px;position:relative}
+  .sp{width:1040px;height:340px;border-radius:520px 520px 0 0;background:url(${b64('hero.jpg')}) 50% 52%/1040px auto;box-shadow:0 0 0 7px #fff,0 0 0 18px rgba(190,235,140,.45),0 14px 34px rgba(0,0,0,.35);margin-bottom:30px;position:relative}
   .pill{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:8px 22px;font-size:22px;font-weight:700;position:relative}
   .pill i{width:11px;height:11px;border-radius:50%;background:#bdeb8c}
   h1{font-size:84px;font-weight:800;margin:30px 0 22px;text-shadow:0 4px 18px rgba(0,0,0,.35);position:relative;letter-spacing:.02em}
   p{font-size:26px;opacity:.92;margin:0;position:relative}
   </style></head><body>
-  <div class=photo style="width:430px;height:430px;right:-110px;bottom:-200px;transform:rotate(8deg)"></div>
+  <div class=photo style="width:430px;height:430px;right:-150px;bottom:-270px;transform:rotate(8deg)"></div>
   <div class=photo style="width:300px;height:300px;left:-60px;top:-70px;transform:rotate(-6deg);opacity:.14"></div>
   <div class=sp></div><span class=pill><i></i>木漏れ日の下で、仕事と仲間がつながる庭</span>
   <h1>PARK システム・クイックスタート</h1><p>SES とエンジニアが集う庭</p></body></html>`);
