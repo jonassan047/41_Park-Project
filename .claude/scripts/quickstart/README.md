@@ -28,3 +28,10 @@ PHP は `D:/xampp/php`、park は `D:/xampp/htdocs/park` の前提（GENESIS）�
 
 - `art.js`：park の `public/img`（sprig.jpg・hero.jpg）から、表紙 `cover.png` と若芽だけを切り抜いた `sprout.png` を作る（sprig.jpg・hero.jpg をこのフォルダにコピーしてから）
 - `build5.js`：5ページの pptx を組む（`node art.js` のあとに）。`render5.ps1` で画像にして確かめる
+
+## 12ページ版（2026-11-27-09〜）
+
+-08 の5ページに、原案の作業一覧 S3〜S10 の7ページを足した（TEZZO「原案 S3 以降もこの続きで」）。6 S3 準備の確認・S4 プロバイダーの登録／7 S5 案件の登録／8 S6 検索／9 S7 案内（■単価を直す）／10 E3 エンジニアの返事／11 S8 応募する → 応募を確定させる → 送信／12 S9 書類・P1 プロバイダーの返事・S10 合否の登録。
+
+- `cap9.js`：cap.js のあとに、同じ見本データの続きで S3〜S10 の画面を撮る（meta9.json）。`node cap9.js 10` のように段階の番号を付けると、そこまで進める。画面の流れは E1 本登録 → プロバイダー → 案件の取り込み → 検索 → 案内 → エンジニアの返事 → 応募 → プロバイダーへの返信 → 合否
+- `build9.js`：12ページの pptx を組む（meta.json と meta9.json を読む）。`render9.ps1` で画像にして確かめる
