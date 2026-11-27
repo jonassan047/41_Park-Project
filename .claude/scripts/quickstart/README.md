@@ -41,3 +41,7 @@ PHP は `D:/xampp/php`、park は `D:/xampp/htdocs/park` の前提（GENESIS）�
 -09 の題・カード名から、原案の作業一覧の仮番号（S3〜S10・E1〜E3・P1）を消した（TEZZO の指示）。番号はページ番号とカードの ①〜④ だけ。
 
 - `build10.js`：-10 の pptx を組む（撮影は -09 と同じ）。`render10.ps1` で画像にして確かめる
+
+## 若枝のドーム（2026-11-27〜）
+
+- `dome.js`：表紙（art.js の `.sp`）と同じ値で、ドームだけを背景透明の PNG に書き出す。`node dome.js 出力.png 2`（保存用）・`node dome.js 出力.png 1`（Web 用）。保存先は `98_Outputs/若枝のドーム`、Web 用は park の `public/img/dome.png`。PARK のトップと区切りのページはこの画像をそのまま出す（TEZZO「PPT と全く同じに」）。
